@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, ScrollView, StyleSheet, Image, Button, TouchableOpacity } from 'react-native';
 import { Text, Icon } from '@rneui/themed';
 import { Card } from '@rneui/themed';
@@ -64,7 +64,17 @@ let styles = StyleSheet.create({
 
 },);
 
-const Accept = ({ riderData }: { riderData: any }) => {
+interface RiderData {
+    name: string;
+    email: string;
+    phone: string;
+    gender: string;
+    age: number;
+}
+
+const Accept = () => {
+
+    const riderData: RiderData = require('../assets/riderData.json');//modify to add path of anotherjson
     const {
         name,
         email,

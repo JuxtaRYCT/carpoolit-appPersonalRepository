@@ -66,7 +66,17 @@ let styles = StyleSheet.create({
 
 },);
 
-const Remove = ({ riderData }: { riderData: any }) => {
+interface RiderData {
+  name: string;
+  email: string;
+  phone: string;
+  gender: string;
+  age: number;
+}
+
+
+const Remove = () => {
+  const riderData: RiderData = require('../assets/riderData.json');//modify to add path of anotherjson
   const {
     name,
     email,
