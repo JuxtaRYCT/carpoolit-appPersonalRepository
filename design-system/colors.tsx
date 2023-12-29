@@ -1,4 +1,4 @@
-const Colors = {
+const AppColors = {
     primary: '#E5D9FF',
     secondary: '#7E30E1',
     accent: '#6B3EA0',
