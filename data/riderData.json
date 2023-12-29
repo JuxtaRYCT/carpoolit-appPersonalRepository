@@ -1,0 +1,31 @@
+[
+    {
+      "name": "Alice Smith",
+      "email": "alicesmith@example.com",
+      "phone": "987-654-3210",
+      "gender": "Female",
+      "age": 25
+    },
+    {
+      "name": "Bob Johnson",
+      "email": "bjohnson@example.com",
+      "phone": "555-123-4567",
+      "gender": "Male",
+      "age": 40
+    },
+    {
+      "name": "Eva Brown",
+      "email": "evabrown@example.com",
+      "phone": "777-888-9999",
+      "gender": "Female",
+      "age": 35
+    },
+    {
+      "name": "Charlie Davis",
+      "email": "charlied@example.com",
+      "phone": "333-444-5555",
+      "gender": "Male",
+      "age": 28
+    }
+  ]
+  
