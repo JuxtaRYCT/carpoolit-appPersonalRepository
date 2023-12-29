@@ -9,10 +9,9 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import JoinListItem from "../components/joinListItem";
 import HostJoinSwitch from "../components/hostjoinSwitch";
-import AppColors from "../design-system/colors";
 
 // Main component for Joining a Ride
-const JoinRide: React.FC = (/*{ navigation }*/) => {
+const HostRide: React.FC = (/*{ navigation }*/) => {
   // Destructuring styles for cleaner usage
   const {
     page,
@@ -42,7 +41,7 @@ const JoinRide: React.FC = (/*{ navigation }*/) => {
 
   // Event handler for Same Gender button press
   const handlePressSame = () => {
-    setGenderButtonInColorSame(AppColors.accent);
+    setGenderButtonInColorSame("#6B3EA0");
     setGenderButtonInColorAny("white");
   };
 
@@ -66,10 +65,11 @@ const JoinRide: React.FC = (/*{ navigation }*/) => {
         />
       </View>
       <View style={list}>
-        <Text style={listHeader}>Trip Details</Text>
-        <JoinListItem icon="location-arrow" placeholder="From" />
+        <Text style={listHeader}>Trip hello</Text>
+        <JoinListItem icon="cash" placeholder="From" />
         <JoinListItem icon="location-arrow" placeholder="To" />
         <JoinListItem icon="calendar-o" placeholder="Date/Time" />
+        <JoinListItem icon="rupee" placeholder="Total Cost" />
         <JoinListItem icon="car" placeholder="Vehicle Type" />
         <View style={genderSection}>
           <TouchableOpacity style={[genderButtonOut, spacing]} onPress={handlePressAny}>
@@ -201,4 +201,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default JoinRide;
+export default HostRide;
