@@ -37,3 +37,4 @@ yarn-error.*
 #files
 App.tsx
 package-lock.json
+assets/riderData.json
