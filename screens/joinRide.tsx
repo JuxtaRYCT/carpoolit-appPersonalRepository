@@ -9,6 +9,7 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import JoinListItem from "../components/joinListItem";
 import HostJoinSwitch from "../components/hostjoinSwitch";
+import AppColors from "../design-system/colors";
 
 // Main component for Joining a Ride
 const JoinRide: React.FC = (/*{ navigation }*/) => {
@@ -41,7 +42,7 @@ const JoinRide: React.FC = (/*{ navigation }*/) => {
 
   // Event handler for Same Gender button press
   const handlePressSame = () => {
-    setGenderButtonInColorSame("#6B3EA0");
+    setGenderButtonInColorSame(AppColors.accent);
     setGenderButtonInColorAny("white");
   };
 

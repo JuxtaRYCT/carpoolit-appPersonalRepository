@@ -11,5 +11,5 @@ const AppColors = {
     
   } as const;
   
-  export default Colors;
+  export default AppColors;
   
