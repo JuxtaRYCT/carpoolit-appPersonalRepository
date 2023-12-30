@@ -24,22 +24,50 @@ const PersonalDetailsCard: React.FC<PersonalDetails>=({personalInfo})=>{
             </View>
 
             <View>
-                <Text style={styles.fieldTitle}>
-                    Name
-                </Text>
-                <Text style={styles.fieldTitle}>
-                    Email-ID
-                </Text>
-                <Text style={styles.fieldTitle}>
-                    Contact Number
-                </Text>
+                <View>
+                    <Text style={styles.fieldTitle}>
+                        Name
+                    </Text>
+                    <Text style={styles.fieldInfo}>
+                        {personalInfo.name}
+                    </Text>
+                </View>
+                <View>
+                    <Text style={styles.fieldTitle}>
+                        Email-ID
+                    </Text>
+                    <Text style={styles.fieldInfo}>
+                        {personalInfo.email}
+                    </Text>
+                </View>
+                <View>
+                    <Text style={styles.fieldTitle}>
+                        Contact Number
+                    </Text>
+                    <Text style={styles.fieldInfo}>
+                        {personalInfo.contactNumber}
+                    </Text>
+                </View>
+                
                 <View style={styles.genderAgeRow}>
-                    <Text style={styles.fieldTitle}>
-                        Gender
-                    </Text>
-                    <Text style={styles.fieldTitle}>
-                        Age
-                    </Text>
+                    <View>
+                        <Text style={styles.fieldTitle}>
+                            Gender
+                        </Text>
+                        <Text style={styles.fieldInfo}>
+                            {personalInfo.gender}
+                        </Text>
+                    </View>
+                    
+                    <View>
+                        <Text style={styles.fieldTitle}>
+                            Age
+                        </Text>
+                        <Text style={styles.fieldInfo}>
+                            {personalInfo.yob}
+                        </Text>
+                    </View>
+                    
                 </View>
             </View>
             
@@ -57,17 +85,31 @@ const styles=StyleSheet.create({
     cardTitle:{
         fontSize: 24,
         color:AppColors.text,
-        fontWeight: "bold"
+        fontWeight: "bold",
+        fontFamily: 'Roboto'
+
     },
 
     fieldTitle:{
         fontSize: 18,
         color:AppColors.text,
-        fontWeight: "bold"
+        fontWeight: "bold",
+        fontFamily: 'Roboto'
+
+    },
+
+    fieldInfo:{
+        fontSize: 15,
+        color:AppColors.accent,
+        backgroundColor: AppColors.primary,
+        borderRadius:10,        
+        width: '80%',
+        padding:5,
+        fontFamily: 'Roboto'
 
     },
 
     genderAgeRow:{
-        flexDirection: "column"
+        flexDirection: "row"
     }
 })
