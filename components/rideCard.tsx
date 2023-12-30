@@ -62,6 +62,8 @@ const styles = StyleSheet.create({
     color: AppColors.text,
     fontWeight: 'bold',
     marginBottom: 5,
+    fontFamily: 'Roboto'
+
   },
 
   tripInfo:{
@@ -71,6 +73,7 @@ const styles = StyleSheet.create({
 
   tripDate: {
     color: AppColors.text,
+    fontFamily: 'Roboto',
     fontSize: 18,
     marginRight: 20
     
@@ -85,6 +88,8 @@ const styles = StyleSheet.create({
   tripCost:{
     fontSize: 20,
     color: AppColors.text,
+    fontFamily: 'Roboto',
+
     fontWeight: 'bold',
     marginBottom: 5,
   },
