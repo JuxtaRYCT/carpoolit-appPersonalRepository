@@ -7,7 +7,7 @@ import {
   SafeAreaView,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import JoinListItem from "../components/joinListItem";
+import TextFieldInput from "../components/textFieldInput";
 import HostJoinSwitch from "../components/hostjoinSwitch";
 import AppColors from "../design-system/colors";
 
@@ -67,10 +67,10 @@ const JoinRide: React.FC = (/*{ navigation }*/) => {
       </View>
       <View style={list}>
         <Text style={listHeader}>Trip Details</Text>
-        <JoinListItem icon="location-arrow" placeholder="From" />
-        <JoinListItem icon="location-arrow" placeholder="To" />
-        <JoinListItem icon="calendar-o" placeholder="Date/Time" />
-        <JoinListItem icon="car" placeholder="Vehicle Type" />
+        <TextFieldInput icon="location-arrow" placeholder="From" />
+        <TextFieldInput icon="location-arrow" placeholder="To" />
+        <TextFieldInput icon="calendar-o" placeholder="Date/Time" />
+        <TextFieldInput icon="car" placeholder="Vehicle Type" />
         <View style={genderSection}>
           <TouchableOpacity style={[genderButtonOut, spacing]} onPress={handlePressAny}>
             <View style={[genderButtonIn, { backgroundColor: genderButtonInColorAny }]} />

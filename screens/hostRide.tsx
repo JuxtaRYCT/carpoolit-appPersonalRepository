@@ -8,7 +8,7 @@ import {
   Modal,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import JoinListItem from "../components/joinListItem";
+import TextFieldInput from "../components/textFieldInput";
 import HostJoinSwitch from "../components/hostjoinSwitch";
 import Calendar1 from "../components/Calendar";
 
@@ -93,6 +93,11 @@ const HostRide: React.FC = (/*{ navigation }*/) => {
         {/* <JoinListItem icon="calendar-o" placeholder="Date/Time" /> */}
         <JoinListItem icon="rupee" placeholder="Total Cost" />
         <JoinListItem icon="car" placeholder="Vehicle Type" />
+        <TextFieldInput icon="cash" placeholder="From" />
+        <TextFieldInput icon="location-arrow" placeholder="To" />
+        <TextFieldInput icon="calendar-o" placeholder="Date/Time" />
+        <TextFieldInput icon="rupee" placeholder="Total Cost" />
+        <TextFieldInput icon="car" placeholder="Vehicle Type" />
         <View style={genderSection}>
           <TouchableOpacity style={[genderButtonOut, spacing]} onPress={handlePressAny}>
             <View style={[genderButtonIn, { backgroundColor: genderButtonInColorAny }]} />
