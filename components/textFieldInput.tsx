@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { StyleSheet, View, TextInput, Text } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 
-// Props interface for JoinListItem component
-interface JoinListItemProps {
+// Props interface for TextFieldInput component
+interface TextFieldInputProps {
   placeholder: string;
   icon: string;
 }
 
-// JoinListItem component
-const JoinListItem: React.FC<JoinListItemProps> = (props) => {
+// TextFieldInput component
+const TextFieldInput: React.FC<TextFieldInputProps> = (props) => {
   // State and function to handle text changes
   const handleChangeText = (inputText: string) => {
     // Update the text state when input changes
@@ -58,5 +58,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default JoinListItem;
+export default TextFieldInput;
 
