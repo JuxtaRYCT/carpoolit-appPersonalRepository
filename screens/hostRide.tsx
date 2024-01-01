@@ -5,10 +5,14 @@ import {
   Text,
   TouchableOpacity,
   SafeAreaView,
+  Modal,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import JoinListItem from "../components/joinListItem";
+import TextFieldInput from "../components/textFieldInput";
 import HostJoinSwitch from "../components/hostjoinSwitch";
+import Calendar1 from "../components/Calendar";
+
+
 
 // Main component for Joining a Ride
 const HostRide: React.FC = (/*{ navigation }*/) => {
@@ -45,6 +49,14 @@ const HostRide: React.FC = (/*{ navigation }*/) => {
     setGenderButtonInColorAny("white");
   };
 
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<string | null>(null);
+
+  const handleDateSelect = (date: string) => {
+    setSelectedDate(date);
+    setShowCalendar(false); // Close the calendar after selecting a date
+  };
+
   return (
     <SafeAreaView style={page}>
       <View style={profile}>
@@ -66,11 +78,26 @@ const HostRide: React.FC = (/*{ navigation }*/) => {
       </View>
       <View style={list}>
         <Text style={listHeader}>Trip hello</Text>
-        <JoinListItem icon="cash" placeholder="From" />
+        <JoinListItem icon="question" placeholder="From" />
         <JoinListItem icon="location-arrow" placeholder="To" />
-        <JoinListItem icon="calendar-o" placeholder="Date/Time" />
+        {!showCalendar ? (
+        <TouchableOpacity style = {{flexDirection:'row',padding:10}}onPress={()=>setShowCalendar(true)}>
+          <Text style={styles.outputtext}>{selectedDate ? selectedDate : 'Date/Time'}</Text>
+        </TouchableOpacity>):(
+          <Modal visible={showCalendar} animationType="slide" transparent={true}>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+        <Calendar1 onDateSelect={handleDateSelect} />
+        </View>
+        </Modal>)
+        }
+        {/* <JoinListItem icon="calendar-o" placeholder="Date/Time" /> */}
         <JoinListItem icon="rupee" placeholder="Total Cost" />
         <JoinListItem icon="car" placeholder="Vehicle Type" />
+        <TextFieldInput icon="cash" placeholder="From" />
+        <TextFieldInput icon="location-arrow" placeholder="To" />
+        <TextFieldInput icon="calendar-o" placeholder="Date/Time" />
+        <TextFieldInput icon="rupee" placeholder="Total Cost" />
+        <TextFieldInput icon="car" placeholder="Vehicle Type" />
         <View style={genderSection}>
           <TouchableOpacity style={[genderButtonOut, spacing]} onPress={handlePressAny}>
             <View style={[genderButtonIn, { backgroundColor: genderButtonInColorAny }]} />
@@ -179,6 +206,17 @@ const styles = StyleSheet.create({
     height: 15,
     borderRadius: 7.5,
     backgroundColor: "white",
+  },
+  outputtext: {
+    flex: 0,
+    width:'90%',
+    alignItems:'stretch',
+    color: '#49108B',
+    fontWeight: 'normal',
+    fontFamily: 'Roboto',
+    padding: 8,
+    backgroundColor: '#E5D9FF',
+    borderRadius: 10,
   },
   // Find Rides button style
   findButton: {
