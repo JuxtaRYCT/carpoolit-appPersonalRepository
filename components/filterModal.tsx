@@ -1,10 +1,27 @@
 import React, { useState } from 'react';
 import { Alert, Modal, StyleSheet, Text, Pressable, View, Dimensions } from 'react-native';
 import AppColors from '../design-system/colors';
+import TextFieldInput from './textFieldInput';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import JoinRide from '../screens/joinRide';
+var {height, width} = Dimensions.get('window');//to get window dimensions for dynamic attributes
 
-var {height, width} = Dimensions.get('window');
 
-const FilterModal = () => {
+// const JoinRide = ({navigation, route}) => {
+//   return <Text>This is {route.params.name}'s profile</Text>;
+// };
+
+type RootStackParamList = {
+  JoinRide : undefined
+  HostRide : undefined
+};
+
+type FilterModalProps = {
+  navigation: NativeStackNavigationProp<RootStackParamList, "JoinRide", "HostRide">;
+};
+const FilterModal : React.FC<FilterModalProps> = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -20,7 +37,8 @@ const FilterModal = () => {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Text style={styles.modalText}>Would you like to change your ride request?</Text>
-            <View style = {{flexDirection: 'row', padding:20}}>
+            <TextFieldInput icon="clock" placeholder="Select time range " />
+                <View style = {{flexDirection: 'row', padding:20}}>
                 <View style = {{ paddingLeft:20,paddingRight:20}}>
                 <Pressable
               style={[styles.button, styles.buttonClose]}
@@ -28,6 +46,7 @@ const FilterModal = () => {
                 setModalVisible(!modalVisible);
                 Alert.alert("You will be redirected to the Join Ride page");
                 //Enter the Navigation Code here
+                navigation.navigate('JoinRide');
 
               }}>
               <Text style={styles.textStyle}>Yes</Text>
