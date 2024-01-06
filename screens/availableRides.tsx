@@ -47,10 +47,15 @@ const AvailableRides: React.FC = () => {
     <View style={page}>
       {/* Back button and Profile button */}
       <View style={iconContainer}>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => console.log("Back button pressed")}
+        >
           <Image style={{ width: 33, height: 33 }} source={back} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.profileButton}>
+        <TouchableOpacity 
+          style={styles.profileButton}
+          onPress={() => console.log("Profile button pressed")}  
+        >
           <Image style={{ width: 28, height: 28 }} source={profilePic} />
         </TouchableOpacity>
       </View>
@@ -66,22 +71,32 @@ const AvailableRides: React.FC = () => {
           <Image style={{ width: 20, height: 20 }} source={search} />
         </TouchableOpacity>
         <TextInput style={searchBar} placeholder="" />
-        <TouchableOpacity style={filterIcon}>
+        <TouchableOpacity 
+          style={filterIcon}
+          onPress={() => console.log("Filter button pressed")}
+        >
           <Image style={{ width: 20, height: 20 }} source={filter} />
         </TouchableOpacity>
       </View>
 
       {/* FlatList for Available Rides */}
       <View style={flatListContainer}>
-        <FlatList
-          style={flatList}
-          data={jsonData}
-          renderItem={({ item }) => <RideCard data={item} />}
-          showsVerticalScrollIndicator={false}
-          showsHorizontalScrollIndicator={false}
-          keyExtractor={(item, index) => index.toString()}
-        />
-      </View>
+      <FlatList
+        style={flatList}
+        data={jsonData}
+        renderItem={({ item }) => (
+          <TouchableOpacity 
+              onPress={() => console.log("Ride Card button pressed")}
+              activeOpacity={0.35}
+          >
+            <RideCard data={item} />
+          </TouchableOpacity>
+        )}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
+        keyExtractor={(item, index) => index.toString()}
+      />
+    </View>
     </View>
   );
 };
@@ -170,6 +185,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: '4%',
     alignContent: "center",
+    marginLeft: 15
   },
 });
 
