@@ -5,10 +5,16 @@ import {
   Text,
   TouchableOpacity,
   SafeAreaView,
+  Modal,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import JoinListItem from "../components/joinListItem";
+import TextFieldInput from "../components/textFieldInput";
 import HostJoinSwitch from "../components/hostjoinSwitch";
+import Calendar1 from "../components/Calendar";
+import PassengerCounter from "../components/passengerCounter";
+import { Card } from "@rneui/themed";
+
+
 
 // Main component for Joining a Ride
 const HostRide: React.FC = (/*{ navigation }*/) => {
@@ -45,6 +51,14 @@ const HostRide: React.FC = (/*{ navigation }*/) => {
     setGenderButtonInColorAny("white");
   };
 
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<string | null>(null);
+
+  const handleDateSelect = (date: string) => {
+    setSelectedDate(date);
+    setShowCalendar(false); // Close the calendar after selecting a date
+  };
+
   return (
     <SafeAreaView style={page}>
       <View style={profile}>
@@ -64,13 +78,23 @@ const HostRide: React.FC = (/*{ navigation }*/) => {
           selectionColor={"#E26EE5"}
         />
       </View>
-      <View style={list}>
-        <Text style={listHeader}>Trip hello</Text>
-        <JoinListItem icon="cash" placeholder="From" />
-        <JoinListItem icon="location-arrow" placeholder="To" />
-        <JoinListItem icon="calendar-o" placeholder="Date/Time" />
-        <JoinListItem icon="rupee" placeholder="Total Cost" />
-        <JoinListItem icon="car" placeholder="Vehicle Type" />
+      <Card containerStyle={list}>
+        <Text style={listHeader}>Trip Details</Text>
+        <TextFieldInput icon="question" placeholder="From" />
+        <TextFieldInput icon="location-arrow" placeholder="To" />
+        {!showCalendar ? (
+        <TouchableOpacity style = {{flexDirection:'row',paddingTop:12}}onPress={()=>setShowCalendar(true)}>
+          <Text style={[styles.outputtext,{padding:10}]}>{selectedDate ? selectedDate : 'Date/Time'}</Text>
+        </TouchableOpacity>):(
+          <Modal visible={showCalendar} animationType="slide" transparent={true}>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+        <Calendar1 onDateSelect={handleDateSelect} />
+        </View>
+        </Modal>)
+        }
+        <PassengerCounter />
+        <TextFieldInput icon="rupee" placeholder="Total Cost" />
+        <TextFieldInput icon="car" placeholder="Vehicle Type" />
         <View style={genderSection}>
           <TouchableOpacity style={[genderButtonOut, spacing]} onPress={handlePressAny}>
             <View style={[genderButtonIn, { backgroundColor: genderButtonInColorAny }]} />
@@ -81,7 +105,7 @@ const HostRide: React.FC = (/*{ navigation }*/) => {
           </TouchableOpacity>
           <Text style={[genderText, spacing]}>Same Gender</Text>
         </View>
-      </View>
+      </Card>
       <View>
         <TouchableOpacity style={findButton}>
           <Text style={findButtonText}>Find Rides</Text>
@@ -119,12 +143,12 @@ const styles = StyleSheet.create({
     color: "#49108B",
     textAlign: "center",
     fontFamily: "Roboto",
-    marginTop: 88,
+    marginTop:70,
     alignItems: "center",
   },
   // Switch style
   switchStyle: {
-    marginTop: 30,
+    marginTop: 25,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -133,11 +157,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     flexDirection: "column",
     width: 343,
-    height: 360,
+    height: 'auto',
     borderRadius: 13,
-    elevation: 20,
-    marginTop: 60,
+    elevation: 10,
+    marginTop: 30,
     alignItems: "center",
+    paddingLeft: 25,
   },
   // List header style
   listHeader: {
@@ -145,12 +170,13 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     color: "#6B3EA0",
     fontFamily: "Roboto",
-    marginTop: 19,
+    marginTop: 10,
   },
   // Gender selection section style
   genderSection: {
     flexDirection: "row",
     marginTop: 30,
+    marginBottom: 30,
   },
   // Spacing style
   spacing: {
@@ -180,16 +206,28 @@ const styles = StyleSheet.create({
     borderRadius: 7.5,
     backgroundColor: "white",
   },
+  outputtext: {
+    flex: 0,
+    width:'90%',
+    alignItems:'stretch',
+    color: '#49108B',
+    fontWeight: 'normal',
+    fontFamily: 'Roboto',
+    padding: 8,
+    backgroundColor: '#E5D9FF',
+    borderRadius: 10,
+  },
   // Find Rides button style
   findButton: {
-    width: 202,
+    flexDirection: "row",
+    alignSelf: "center",
+    width: '50%',
     height: 40,
     borderRadius: 50,
     backgroundColor: "#7E30E1",
-    alignItems: "center",
     justifyContent: "center",
-    marginTop: 100,
-    marginLeft: 62,
+    alignItems: "center",
+    marginTop: 40,
   },
   // Find Rides button text style
   findButtonText: {

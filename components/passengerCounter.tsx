@@ -48,7 +48,7 @@ export default class PassengerCounter extends React.Component {
 
 const styles = StyleSheet.create({
 container: {
-  flex:1,
+  height: 70,
   backgroundColor:'#fff',
   alignItems: 'center',
   justifyContent :'center',

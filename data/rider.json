@@ -1,0 +1,11 @@
+{
+    "name": "Alice Smith",
+    "email": "alicesmith@example.com",
+    "phone": "987-654-3210",
+    "gender": "Female",
+    "age": 25,
+    "from":"Pune",
+    "to":"Vellore",
+    "date":"12/12/2019",
+    "Vehicle":"Car"
+}
