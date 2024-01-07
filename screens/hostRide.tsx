@@ -77,12 +77,12 @@ const HostRide: React.FC = (/*{ navigation }*/) => {
         />
       </View>
       <View style={list}>
-        <Text style={listHeader}>Trip hello</Text>
-        <JoinListItem icon="question" placeholder="From" />
-        <JoinListItem icon="location-arrow" placeholder="To" />
+        <Text style={listHeader}>Trip Details</Text>
+        <TextFieldInput icon="question" placeholder="From" />
+        <TextFieldInput icon="location-arrow" placeholder="To" />
         {!showCalendar ? (
-        <TouchableOpacity style = {{flexDirection:'row',padding:10}}onPress={()=>setShowCalendar(true)}>
-          <Text style={styles.outputtext}>{selectedDate ? selectedDate : 'Date/Time'}</Text>
+        <TouchableOpacity style = {{flexDirection:'row',paddingTop:12}}onPress={()=>setShowCalendar(true)}>
+          <Text style={[styles.outputtext,{padding:10}]}>{selectedDate ? selectedDate : 'Date/Time'}</Text>
         </TouchableOpacity>):(
           <Modal visible={showCalendar} animationType="slide" transparent={true}>
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
@@ -90,12 +90,6 @@ const HostRide: React.FC = (/*{ navigation }*/) => {
         </View>
         </Modal>)
         }
-        {/* <JoinListItem icon="calendar-o" placeholder="Date/Time" /> */}
-        <JoinListItem icon="rupee" placeholder="Total Cost" />
-        <JoinListItem icon="car" placeholder="Vehicle Type" />
-        <TextFieldInput icon="cash" placeholder="From" />
-        <TextFieldInput icon="location-arrow" placeholder="To" />
-        <TextFieldInput icon="calendar-o" placeholder="Date/Time" />
         <TextFieldInput icon="rupee" placeholder="Total Cost" />
         <TextFieldInput icon="car" placeholder="Vehicle Type" />
         <View style={genderSection}>
@@ -160,7 +154,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     flexDirection: "column",
     width: 343,
-    height: 360,
+    height: 'auto',
     borderRadius: 13,
     elevation: 20,
     marginTop: 60,
@@ -178,6 +172,7 @@ const styles = StyleSheet.create({
   genderSection: {
     flexDirection: "row",
     marginTop: 30,
+    marginBottom: 30,
   },
   // Spacing style
   spacing: {
