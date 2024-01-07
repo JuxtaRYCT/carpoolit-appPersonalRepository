@@ -39,19 +39,19 @@ const TimePicker: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    marginTop:15
   },
   button: {
-    backgroundColor: '#6B3EA0',
-    borderRadius: 8,
-    paddingVertical: 12,
-    paddingHorizontal: 24,
-    marginBottom: 16,
+    backgroundColor: "#E5D9FF",
+    justifyContent: "flex-start",
+    flexDirection: "row",
+    width: 309,
+    height: 41,
+    borderRadius: 13,
+    padding: 12,
   },
   buttonText: {
-    color: 'white',
+    color: '#49108B',
     fontWeight: 'bold',
     fontSize: 16,
   },

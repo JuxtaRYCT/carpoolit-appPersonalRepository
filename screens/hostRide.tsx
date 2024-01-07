@@ -11,6 +11,9 @@ import { Ionicons } from "@expo/vector-icons";
 import TextFieldInput from "../components/textFieldInput";
 import HostJoinSwitch from "../components/hostjoinSwitch";
 import Calendar1 from "../components/Calendar";
+import PassengerCounter from "../components/passengerCounter";
+import { Card } from "@rneui/themed";
+import TimePicker from "../components/Time";
 
 
 
@@ -76,13 +79,13 @@ const HostRide: React.FC = (/*{ navigation }*/) => {
           selectionColor={"#E26EE5"}
         />
       </View>
-      <View style={list}>
+      <Card containerStyle={list}>
         <Text style={listHeader}>Trip Details</Text>
         <TextFieldInput icon="question" placeholder="From" />
         <TextFieldInput icon="location-arrow" placeholder="To" />
         {!showCalendar ? (
         <TouchableOpacity style = {{flexDirection:'row',paddingTop:12}}onPress={()=>setShowCalendar(true)}>
-          <Text style={[styles.outputtext,{padding:10}]}>{selectedDate ? selectedDate : 'Date/Time'}</Text>
+          <Text style={[styles.outputtext,{padding:10}]}>{selectedDate ? selectedDate : 'Date'}</Text>
         </TouchableOpacity>):(
           <Modal visible={showCalendar} animationType="slide" transparent={true}>
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
@@ -90,6 +93,8 @@ const HostRide: React.FC = (/*{ navigation }*/) => {
         </View>
         </Modal>)
         }
+        <TimePicker/>
+        <PassengerCounter />
         <TextFieldInput icon="rupee" placeholder="Total Cost" />
         <TextFieldInput icon="car" placeholder="Vehicle Type" />
         <View style={genderSection}>
@@ -102,7 +107,7 @@ const HostRide: React.FC = (/*{ navigation }*/) => {
           </TouchableOpacity>
           <Text style={[genderText, spacing]}>Same Gender</Text>
         </View>
-      </View>
+      </Card>
       <View>
         <TouchableOpacity style={findButton}>
           <Text style={findButtonText}>Find Rides</Text>
@@ -140,12 +145,12 @@ const styles = StyleSheet.create({
     color: "#49108B",
     textAlign: "center",
     fontFamily: "Roboto",
-    marginTop: 88,
+    marginTop:70,
     alignItems: "center",
   },
   // Switch style
   switchStyle: {
-    marginTop: 30,
+    marginTop: 25,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -156,9 +161,10 @@ const styles = StyleSheet.create({
     width: 343,
     height: 'auto',
     borderRadius: 13,
-    elevation: 20,
-    marginTop: 60,
+    elevation: 10,
+    marginTop: 30,
     alignItems: "center",
+    paddingLeft: 25,
   },
   // List header style
   listHeader: {
@@ -166,7 +172,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     color: "#6B3EA0",
     fontFamily: "Roboto",
-    marginTop: 19,
+    marginTop: 10,
   },
   // Gender selection section style
   genderSection: {
@@ -204,7 +210,7 @@ const styles = StyleSheet.create({
   },
   outputtext: {
     flex: 0,
-    width:'90%',
+    width:'100%',
     alignItems:'stretch',
     color: '#49108B',
     fontWeight: 'normal',
@@ -215,14 +221,15 @@ const styles = StyleSheet.create({
   },
   // Find Rides button style
   findButton: {
-    width: 202,
+    flexDirection: "row",
+    alignSelf: "center",
+    width: '50%',
     height: 40,
     borderRadius: 50,
     backgroundColor: "#7E30E1",
-    alignItems: "center",
     justifyContent: "center",
-    marginTop: 100,
-    marginLeft: 62,
+    alignItems: "center",
+    marginTop: 40,
   },
   // Find Rides button text style
   findButtonText: {
