@@ -4,16 +4,17 @@ import Accept from './screens/accept';
 import Remove from './screens/remove';
 import HostJoinSwitch from './components/hostjoinSwitch';
 import HostRide from './screens/hostRide';
-import TimePicker from './components/Time';
+import TimePicker from './components/time_display';
 import JoinRide from './screens/joinRide';
 import DetailInput from './screens/details';
+import ProfileCreation from './screens/profile-creation';
 
 export default function App() {
 
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <HostRide/>
+      <ProfileCreation/>
     </View>
   );
 }

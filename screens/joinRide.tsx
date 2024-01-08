@@ -12,7 +12,7 @@ import TextFieldInput from "../components/textFieldInput";
 import HostJoinSwitch from "../components/hostjoinSwitch";
 import AppColors from "../design-system/colors";
 import Calendar1 from "../components/Calendar";
-import TimePicker from "../components/Time";
+import TimePicker from "../components/time_display";
 
 // Main component for Joining a Ride
 const JoinRide: React.FC = (/*{ navigation }*/) => {

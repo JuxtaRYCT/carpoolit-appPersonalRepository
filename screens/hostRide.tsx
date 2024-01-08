@@ -13,7 +13,7 @@ import HostJoinSwitch from "../components/hostjoinSwitch";
 import Calendar1 from "../components/Calendar";
 import PassengerCounter from "../components/passengerCounter";
 import { Card } from "@rneui/themed";
-import TimePicker from "../components/Time";
+import TimePicker from "../components/time_display";
 
 
 
