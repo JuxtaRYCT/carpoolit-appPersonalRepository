@@ -5,11 +5,14 @@ import {
   Text,
   TouchableOpacity,
   SafeAreaView,
+  Modal
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import TextFieldInput from "../components/textFieldInput";
 import HostJoinSwitch from "../components/hostjoinSwitch";
 import AppColors from "../design-system/colors";
+import Calendar1 from "../components/Calendar";
+import TimePicker from "../components/time_display";
 
 // Main component for Joining a Ride
 const JoinRide: React.FC = (/*{ navigation }*/) => {
@@ -45,6 +48,13 @@ const JoinRide: React.FC = (/*{ navigation }*/) => {
     setGenderButtonInColorSame(AppColors.accent);
     setGenderButtonInColorAny("white");
   };
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<string | null>(null);
+
+  const handleDateSelect = (date: string) => {
+    setSelectedDate(date);
+    setShowCalendar(false); // Close the calendar after selecting a date
+  };
 
   return (
     <SafeAreaView style={page}>
@@ -69,7 +79,17 @@ const JoinRide: React.FC = (/*{ navigation }*/) => {
         <Text style={listHeader}>Trip Details</Text>
         <TextFieldInput icon="location-arrow" placeholder="From" />
         <TextFieldInput icon="location-arrow" placeholder="To" />
-        <TextFieldInput icon="calendar-o" placeholder="Date/Time" />
+        {!showCalendar ? (
+        <TouchableOpacity style = {{flexDirection:'row',paddingTop:12}}onPress={()=>setShowCalendar(true)}>
+          <Text style={[styles.outputtext,{padding:10}]}>{selectedDate ? selectedDate : 'Date'}</Text>
+        </TouchableOpacity>):(
+          <Modal visible={showCalendar} animationType="slide" transparent={true}>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+        <Calendar1 onDateSelect={handleDateSelect} />
+        </View>
+        </Modal>)
+        }
+        <TimePicker/>
         <TextFieldInput icon="car" placeholder="Vehicle Type" />
         <View style={genderSection}>
           <TouchableOpacity style={[genderButtonOut, spacing]} onPress={handlePressAny}>
@@ -191,6 +211,17 @@ const styles = StyleSheet.create({
     marginTop: 100,
     marginLeft: 62,
   },
+outputtext: {
+  flex: 0,
+  width:'90%',
+  alignItems:'stretch',
+  color: '#49108B',
+  fontWeight: 'normal',
+  fontFamily: 'Roboto',
+  padding: 8,
+  backgroundColor: '#E5D9FF',
+  borderRadius: 10,
+},
   // Find Rides button text style
   findButtonText: {
     fontSize: 14,
@@ -199,6 +230,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontFamily: "Roboto",
   },
+  
 });
 
 export default JoinRide;

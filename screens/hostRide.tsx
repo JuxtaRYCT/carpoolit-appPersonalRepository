@@ -13,6 +13,7 @@ import HostJoinSwitch from "../components/hostjoinSwitch";
 import Calendar1 from "../components/Calendar";
 import PassengerCounter from "../components/passengerCounter";
 import { Card } from "@rneui/themed";
+import TimePicker from "../components/time_display";
 
 
 
@@ -84,7 +85,7 @@ const HostRide: React.FC = (/*{ navigation }*/) => {
         <TextFieldInput icon="location-arrow" placeholder="To" />
         {!showCalendar ? (
         <TouchableOpacity style = {{flexDirection:'row',paddingTop:12}}onPress={()=>setShowCalendar(true)}>
-          <Text style={[styles.outputtext,{padding:10}]}>{selectedDate ? selectedDate : 'Date/Time'}</Text>
+          <Text style={[styles.outputtext,{padding:10}]}>{selectedDate ? selectedDate : 'Date'}</Text>
         </TouchableOpacity>):(
           <Modal visible={showCalendar} animationType="slide" transparent={true}>
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
@@ -92,6 +93,7 @@ const HostRide: React.FC = (/*{ navigation }*/) => {
         </View>
         </Modal>)
         }
+        <TimePicker/>
         <PassengerCounter />
         <TextFieldInput icon="rupee" placeholder="Total Cost" />
         <TextFieldInput icon="car" placeholder="Vehicle Type" />
@@ -208,7 +210,7 @@ const styles = StyleSheet.create({
   },
   outputtext: {
     flex: 0,
-    width:'90%',
+    width:'100%',
     alignItems:'stretch',
     color: '#49108B',
     fontWeight: 'normal',
