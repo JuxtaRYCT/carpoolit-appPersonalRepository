@@ -46,12 +46,12 @@ const styles = StyleSheet.create({
 
     backgroundColor: AppColors.primary,
     borderRadius: 20,
-    padding: 15,
+    padding: 20,
     margin: 10,
-    width: '90%',
-    height: 140,
+    width: '95%',
     flexDirection: 'row',
     justifyContent: 'space-between'
+    
   },
 
   location:{

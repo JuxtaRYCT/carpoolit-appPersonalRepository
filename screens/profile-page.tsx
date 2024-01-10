@@ -33,31 +33,37 @@ const Dashboard=()=>{
         return(
             
             <>
-                <TouchableOpacity style={styles.backbutton}>
-                    <Image source={require('../assets/alc.png')} style={{ width: 42, height: 42 }} />
-                </TouchableOpacity>
+                
 
                 <View style={styles.backbutton}>
-                    <ScrollView>
-                        <Text style={styles.dashboard}>
-                            Dashboard
-                        </Text>
-                        {jsonData.map((cardData, index) => (
-                            <PersonalDetailsCard key={index} personalInfo={cardData} />
-                        ))}
+                    <TouchableOpacity style={styles.backbutton}>
+                        <Image source={require('../assets/alc.png')} style={{ width: 42, height: 42 }} />
+                    </TouchableOpacity>
 
-                        <Text style={styles.text}>
-                            Upcoming Trips
-                        </Text>
-                        {jsonData2.map((cardData, index) => (
-                            <RideCard key={index} data={cardData} />
-                        ))}
-                        <Text style={styles.text}>
-                            Past Trips
-                        </Text>
-                        {jsonData2.map((cardData, index) => (
-                            <RideCard key={index} data={cardData} />
-                        ))}
+                    <Text style={styles.dashboard}>
+                            Dashboard
+                    </Text>
+
+                    <ScrollView showsVerticalScrollIndicator={false}>
+                        <View style={styles.parentContainer}>
+                            {jsonData.map((cardData, index) => (
+                                <PersonalDetailsCard key={index} personalInfo={cardData}/>
+                            ))}
+
+                            <Text style={styles.text}>
+                                Upcoming Trips
+                            </Text>
+                            {jsonData2.map((cardData, index) => (
+                                <RideCard key={index} data={cardData} />
+                            ))}
+                            <Text style={styles.text}>
+                                Past Trips
+                            </Text>
+                            {jsonData2.map((cardData, index) => (
+                                <RideCard key={index} data={cardData} />
+                            ))}
+                        </View>
+                        
                     </ScrollView>
                     
 
@@ -75,8 +81,17 @@ const Dashboard=()=>{
 const styles = StyleSheet.create({
     mainView:{
         flex:1,
-        padding: 10
+        padding: 0
     },
+
+    scroller:{
+        alignContent: 'center',
+    },
+
+    parentContainer:{
+        alignContent: 'center'
+    },
+
     backbutton: {
         alignSelf: 'flex-start',
         padding: 25,
@@ -89,7 +104,8 @@ const styles = StyleSheet.create({
         fontSize: 32,
         fontWeight: "bold",
         color: AppColors.text,
-        margin: 10
+        marginBottom: 10,
+        textAlign: 'center'
       },
 
       text:{
