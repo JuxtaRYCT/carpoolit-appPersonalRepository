@@ -16,8 +16,8 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      {/* <ProfileCreation/> */}
-      <Dashboard/>
+      <ProfileCreation/>
+      {/* <Dashboard/> */}
       
     </View>
   );
