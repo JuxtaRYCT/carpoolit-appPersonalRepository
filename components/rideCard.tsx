@@ -29,7 +29,7 @@ const RideCard: React.FC<CardVariables> = ({ data }) => {
           <Text style={styles.tripTime}>{formattedTime}</Text>
         </View>
         
-        <Text style={styles.tripCost}>₹{data.cost.toFixed(2)}/person</Text>
+        <Text style={styles.tripCost}>₹{data.cost}/person</Text>
       </View>
       
       

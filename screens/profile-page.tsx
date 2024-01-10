@@ -26,9 +26,9 @@ const Dashboard=()=>{
         yob:number;
     };
     
-    const Dashboard=()=>{
+    
         const jsonData: PersonalData[] = personalInfo as unknown as PersonalData[];
-        const jsonData2: CardData[] = data as unknown as CardData[];
+        const jsonData2: CardData[] = personalInfo as unknown as CardData[];
 
         return(
             
@@ -52,7 +52,7 @@ const Dashboard=()=>{
                         {jsonData2.map((cardData, index) => (
                             <RideCard key={index} data={cardData} />
                         ))}
-                        <Text>
+                        <Text style={styles.text}>
                             Past Trips
                         </Text>
                         {jsonData2.map((cardData, index) => (
@@ -70,7 +70,7 @@ const Dashboard=()=>{
       
       
       
-}
+
 
 const styles = StyleSheet.create({
     mainView:{
@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
         padding: 25,
         paddingTop: 40,
         paddingLeft: 24,
+        
       },
 
       dashboard:{
