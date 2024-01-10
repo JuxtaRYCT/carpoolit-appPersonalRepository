@@ -100,7 +100,7 @@ const styles=StyleSheet.create({
         padding: 10,
         marginTop:10,
         marginBottom: 20,
-        marginLeft:5
+        marginLeft:10
         
     },
 
