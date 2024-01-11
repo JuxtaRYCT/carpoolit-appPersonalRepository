@@ -7,8 +7,8 @@ interface CardVariables {
   data: {
     startingLocation: string;
     destination: string;
-    date: any;
-    time: any;
+    date: Date;
+    time: Date;
     cost: number;
     hostProfilePic: string;
     hostName: string;
