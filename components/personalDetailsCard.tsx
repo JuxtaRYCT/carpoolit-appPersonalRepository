@@ -34,15 +34,16 @@ const PersonalDetailsCard: React.FC<PersonalDetails>=({personalInfo})=>{
                         
                     </Text>
                 </View>
-                <View style={styles.fieldShape}>
+                
                     <Text style={styles.fieldTitle}>
                         Email-ID
                     </Text>
+                    
                     <Text style={styles.fieldInfo}>
                         {personalInfo.email}
                         
                     </Text>
-                </View>
+                    
                 <View style={styles.fieldAlign}>
                     <Text style={styles.fieldTitle}>
                         Contact Number
@@ -70,11 +71,11 @@ const PersonalDetailsCard: React.FC<PersonalDetails>=({personalInfo})=>{
                         <Text style={styles.fieldTitle}>
                             Age
                         </Text>
-                        <View style={styles.fieldShape}>
-                            <Text style={styles.fieldInfo}>
-                                {personalInfo.yob}
-                            </Text>
-                        </View>
+                        
+                        <Text style={styles.fieldInfo}>
+                            {personalInfo.yob}
+                        </Text>
+                        
                         
                     </View>
                     
@@ -133,11 +134,6 @@ const styles=StyleSheet.create({
         justifyContent:'flex-start'
     },
     
-    fieldShape:{
-        borderColor:AppColors.primary,
-        borderRadius: 10
-    
-    },
     
     genderAgeRow:{
         flexDirection: "row",
