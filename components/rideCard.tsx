@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import AppColors from '../design-system/colors';
+import MarqueeText from 'react-native-marquee';
 
 interface CardVariables {
   data: {
@@ -32,10 +33,9 @@ const RideCard: React.FC<CardVariables> = ({ data }) => {
         <Text style={styles.tripCost}>₹{data.cost.toFixed(2)}/person</Text>
       </View>
       
-      
       <View style={styles.hostInfo}>
         <Image style={styles.profilePic} source={{ uri: data.hostProfilePic }} />
-        <Text style={styles.title}>{data.hostName}</Text>
+        <MarqueeText style={styles.title} speed={0.25} delay={1000}>{data.hostName}</MarqueeText>
       </View>
     </View>
   );
@@ -43,15 +43,14 @@ const RideCard: React.FC<CardVariables> = ({ data }) => {
 
 const styles = StyleSheet.create({
   card: {
-
     backgroundColor: AppColors.primary,
     borderRadius: 20,
     padding: 15,
     margin: 10,
     width: '90%',
-    height: 140,
+    height: 155,
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
 
   location:{
@@ -62,7 +61,7 @@ const styles = StyleSheet.create({
     color: AppColors.text,
     fontWeight: 'bold',
     marginBottom: 5,
-    fontFamily: 'Roboto'
+    fontFamily: 'Roboto',
 
   },
 
@@ -75,7 +74,7 @@ const styles = StyleSheet.create({
     color: AppColors.text,
     fontFamily: 'Roboto',
     fontSize: 18,
-    marginRight: 20
+    marginRight: 15
     
   },
 
@@ -89,15 +88,16 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: AppColors.text,
     fontFamily: 'Roboto',
-
     fontWeight: 'bold',
     marginBottom: 5,
   },
   
   hostInfo: {
+    flexWrap: 'wrap',
     flexDirection: 'column',
     marginTop: 5,
-    alignContent:'center'
+    alignContent:'center',
+    width: 77.5
   },
   profilePic: {
     width: 40,
