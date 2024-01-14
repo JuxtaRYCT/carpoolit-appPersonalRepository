@@ -34,15 +34,16 @@ const PersonalDetailsCard: React.FC<PersonalDetails>=({personalInfo})=>{
                         
                     </Text>
                 </View>
-                <View>
+                
                     <Text style={styles.fieldTitle}>
                         Email-ID
                     </Text>
+                    
                     <Text style={styles.fieldInfo}>
                         {personalInfo.email}
                         
                     </Text>
-                </View>
+                    
                 <View style={styles.fieldAlign}>
                     <Text style={styles.fieldTitle}>
                         Contact Number
@@ -70,11 +71,11 @@ const PersonalDetailsCard: React.FC<PersonalDetails>=({personalInfo})=>{
                         <Text style={styles.fieldTitle}>
                             Age
                         </Text>
-                        <View style={styles.fieldShape}>
-                            <Text style={styles.fieldInfo}>
-                                {personalInfo.yob}
-                            </Text>
-                        </View>
+                        
+                        <Text style={styles.fieldInfo}>
+                            {personalInfo.yob}
+                        </Text>
+                        
                         
                     </View>
                     
@@ -90,7 +91,7 @@ const styles=StyleSheet.create({
     card:{
         flexDirection: "column",
         borderRadius: 12,
-        width: '85%',
+        width: '95%',
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 4 },
         shadowOpacity: 0.5,
@@ -98,7 +99,10 @@ const styles=StyleSheet.create({
         elevation: 5, 
         backgroundColor: AppColors.background,
         padding: 10,
-                
+        marginTop:10,
+        marginBottom: 20,
+        marginLeft:10
+        
     },
 
     cardTitle:{
@@ -122,6 +126,7 @@ const styles=StyleSheet.create({
         backgroundColor: AppColors.primary,        
         padding:12,
         margin:8,
+        borderRadius: 10
         
     },
 
@@ -129,11 +134,6 @@ const styles=StyleSheet.create({
         justifyContent:'flex-start'
     },
     
-    fieldShape:{
-        borderColor:AppColors.primary,
-        borderRadius: 10
-    
-    },
     
     genderAgeRow:{
         flexDirection: "row",

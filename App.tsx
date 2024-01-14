@@ -8,13 +8,17 @@ import TimePicker from './components/time_display';
 import JoinRide from './screens/joinRide';
 import DetailInput from './screens/details';
 import ProfileCreation from './screens/profile-creation';
+import RideCard from './components/rideCard';
+import Dashboard from './screens/profile-page';
 
 export default function App() {
 
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <ProfileCreation/>
+      {/* <ProfileCreation/> */}
+      <Dashboard/>
+      
     </View>
   );
 }
