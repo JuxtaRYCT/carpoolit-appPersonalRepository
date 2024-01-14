@@ -13,9 +13,28 @@ import HostJoinSwitch from "../components/hostjoinSwitch";
 import AppColors from "../design-system/colors";
 import Calendar1 from "../components/Calendar";
 import TimePicker from "../components/time_display";
-
+import { NavigationContainer } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
+import App from "../App";
 // Main component for Joining a Ride
-const JoinRide: React.FC = (/*{ navigation }*/) => {
+import { StackNavigationProp } from "@react-navigation/stack";
+
+
+type JoinRideProps = {
+  navigation: StackNavigationProp<RootStackParamList, "JoinRide">;
+};
+type RootStackParamList = { 
+  JoinRide: undefined;
+  availableRides: undefined;
+  interestedRider: undefined;
+  hostRide: undefined;
+  details: undefined;
+  profileCreation: undefined;
+  accept: undefined;
+  remove: undefined;
+};
+
+const JoinRide: React.FC<JoinRideProps> = ({ navigation }) => {
   // Destructuring styles for cleaner usage
   const {
     page,
@@ -37,6 +56,10 @@ const JoinRide: React.FC = (/*{ navigation }*/) => {
   const [genderButtonInColorAny, setGenderButtonInColorAny] = useState("white");
   const [genderButtonInColorSame, setGenderButtonInColorSame] = useState("white");
 
+  const findRides = () => {
+    navigation.navigate('availableRides');
+  };
+
   // Event handler for Any Gender button press
   const handlePressAny = () => {
     setGenderButtonInColorAny("#6B3EA0");
@@ -57,7 +80,8 @@ const JoinRide: React.FC = (/*{ navigation }*/) => {
   };
 
   return (
-    <SafeAreaView style={page}>
+
+      <SafeAreaView style={page}>
       <View style={profile}>
         <TouchableOpacity>
           <Text>
@@ -103,7 +127,7 @@ const JoinRide: React.FC = (/*{ navigation }*/) => {
         </View>
       </View>
       <View>
-        <TouchableOpacity style={findButton}>
+        <TouchableOpacity style={findButton} onPress={findRides}>
           <Text style={findButtonText}>Find Rides</Text>
         </TouchableOpacity>
       </View>

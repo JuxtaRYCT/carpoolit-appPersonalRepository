@@ -28,6 +28,7 @@ const Dashboard=()=>{
     
     const Dashboard=()=>{
         const jsonData: PersonalData[] = personalInfo as unknown as PersonalData[];
+        const data: any = []; // Replace 'any' with the appropriate type for your data
         const jsonData2: CardData[] = data as unknown as CardData[];
 
         return(

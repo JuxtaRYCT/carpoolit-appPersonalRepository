@@ -14,12 +14,18 @@ var {height, width} = Dimensions.get('window');//to get window dimensions for dy
 // };
 
 type RootStackParamList = {
-  JoinRide : undefined
-  HostRide : undefined
+  JoinRide: undefined;
+  availableRides: undefined;
+  interestedRider: undefined;
+  hostRide: undefined;
+  details: undefined;
+  profileCreation: undefined;
+  accept: undefined;
+  remove: undefined;
+  filtermodal: undefined;
 };
-
 type FilterModalProps = {
-  navigation: NativeStackNavigationProp<RootStackParamList, "JoinRide", "HostRide">;
+  navigation: NativeStackNavigationProp<RootStackParamList,"filtermodal">;
 };
 const FilterModal : React.FC<FilterModalProps> = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
