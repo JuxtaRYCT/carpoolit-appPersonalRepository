@@ -10,11 +10,26 @@ import {
 } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import Calendar1 from "../components/Calendar";
+import { StackNavigationProp } from "@react-navigation/stack";
 
+type RootStackParamList = {
+  joinride: undefined;
+  availableRides: undefined;
+  interestedRider: undefined;
+  hostRide: undefined;
+  details: undefined;
+  profileCreation: undefined;
+  accept: undefined;
+  remove: undefined;
+  profilepage:undefined;
+  filtermodal:undefined
+};
 
-interface DetailInputProps {}
+interface DetailInputProps {
+  navigation:StackNavigationProp<RootStackParamList,"details">;
+}
 
-const DetailInput: React.FC<DetailInputProps> = () => {
+const DetailInput: React.FC<DetailInputProps> = ({navigation}) => {
   const {
     page,
     heading,
@@ -51,7 +66,9 @@ const DetailInput: React.FC<DetailInputProps> = () => {
       <View style={{
         marginTop:10
       }}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>{
+          navigation.pop();
+        }}>
             <Ionicons name='arrow-back-circle-outline' size={38} color="#49108B" />
         </TouchableOpacity>
       </View>

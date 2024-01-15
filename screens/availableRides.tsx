@@ -28,7 +28,7 @@ interface CardData {
   hostName: string;
 }
 type RootStackParamList = {
-  JoinRide: undefined;
+  joinride: undefined;
   availableRides: undefined;
   interestedRider: undefined;
   hostRide: undefined;
@@ -37,6 +37,7 @@ type RootStackParamList = {
   accept: undefined;
   remove: undefined;
   filtermodal: undefined;
+  profilepage: undefined
 };
 type AvailableRideProps = {
   navigation : StackNavigationProp<RootStackParamList, "availableRides">;
@@ -77,7 +78,7 @@ const AvailableRides: React.FC<AvailableRideProps> = ({navigation}) => {
         <TouchableOpacity 
           style={styles.profileButton}
           onPress={() => {console.log("Profile button pressed");
-          navigation.navigate('profileCreation');}}  
+          navigation.navigate('profilepage');}}  
         >
           <Image style={{ width: 28, height: 28 }} source={profilePic} />
         </TouchableOpacity>
@@ -110,7 +111,8 @@ const AvailableRides: React.FC<AvailableRideProps> = ({navigation}) => {
         data={jsonData}
         renderItem={({ item }) => (
           <TouchableOpacity 
-              onPress={() => console.log("Ride Card button pressed")}
+              onPress={() => {console.log("Ride Card button pressed");
+            navigation.navigate('details');}}
               activeOpacity={0.35}
           >
             <RideCard data={item} />

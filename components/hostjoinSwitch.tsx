@@ -3,22 +3,27 @@ import {Text, View, TouchableOpacity } from "react-native";
 
 // Props interface for HostJoinSwitch component
 interface HostJoinSwitchProps {
-  // navigation: any, 
+  navigation: any, 
   selectionMode: number;
   roundCorner: boolean;
   option1: string;
   option2: string;
   selectionColor: string;
+  hostridefunc: any;
+  joinridefunc: any;
 }
 
 // HostJoinSwitch component
 const HostJoinSwitch: React.FC<HostJoinSwitchProps> = (props) => {
   const {
-    /*navigation,*/ selectionMode,
+    selectionMode,
     roundCorner,
     option1,
     option2,
     selectionColor,
+    navigation,
+    hostridefunc,
+    joinridefunc
   } = props;
 
   // State variables to manage switch state
@@ -47,7 +52,10 @@ const HostJoinSwitch: React.FC<HostJoinSwitchProps> = (props) => {
       >
         <TouchableOpacity
           activeOpacity={1}
-          onPress={() => updatedSwitchData(1)}
+          onPress={() => {
+            updatedSwitchData(1);
+              hostridefunc();
+          }}
           style={{
             flex: 1,
             backgroundColor: getSelectionMode == 1 ? selectionColor : "white",
@@ -66,7 +74,8 @@ const HostJoinSwitch: React.FC<HostJoinSwitchProps> = (props) => {
         </TouchableOpacity>
         <TouchableOpacity
           activeOpacity={1}
-          onPress={() => updatedSwitchData(2)}
+          onPress={() => {updatedSwitchData(2);
+          joinridefunc();}}
           style={{
             flex: 1,
             backgroundColor: getSelectionMode == 2 ? selectionColor : "white",

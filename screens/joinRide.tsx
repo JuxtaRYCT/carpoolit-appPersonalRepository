@@ -21,10 +21,10 @@ import { StackNavigationProp } from "@react-navigation/stack";
 
 
 type JoinRideProps = {
-  navigation: StackNavigationProp<RootStackParamList, "JoinRide">;
+  navigation: StackNavigationProp<RootStackParamList, "joinride">;
 };
 type RootStackParamList = { 
-  JoinRide: undefined;
+  joinride: undefined;
   availableRides: undefined;
   interestedRider: undefined;
   hostRide: undefined;
@@ -32,6 +32,7 @@ type RootStackParamList = {
   profileCreation: undefined;
   accept: undefined;
   remove: undefined;
+  profilepage:undefined;
 };
 
 const JoinRide: React.FC<JoinRideProps> = ({ navigation }) => {
@@ -83,7 +84,9 @@ const JoinRide: React.FC<JoinRideProps> = ({ navigation }) => {
 
       <SafeAreaView style={page}>
       <View style={profile}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>{
+          navigation.navigate('profilepage');
+        }}>
           <Text>
             <Ionicons name="person" size={38} color="#49108B" />{" "}
           </Text>
@@ -97,6 +100,9 @@ const JoinRide: React.FC<JoinRideProps> = ({ navigation }) => {
           option1={"Host"}
           option2={"Join"}
           selectionColor={"#E26EE5"}
+          navigation={navigation}
+          hostridefunc={() => navigation.navigate("hostRide")}
+          joinridefunc={() => {}}
         />
       </View>
       <View style={list}>

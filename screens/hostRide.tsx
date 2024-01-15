@@ -14,11 +14,26 @@ import Calendar1 from "../components/Calendar";
 import PassengerCounter from "../components/passengerCounter";
 import { Card } from "@rneui/themed";
 import TimePicker from "../components/time_display";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 
+type RootStackParamList = { 
+  joinride: undefined;
+  availableRides: undefined;
+  interestedRider: undefined;
+  hostRide: undefined;
+  details: undefined;
+  profileCreation: undefined;
+  accept: undefined;
+  remove: undefined;
+  profilepage:undefined;
+};
+interface HostRideProps { 
+  navigation: StackNavigationProp<RootStackParamList>;
+}
 
 // Main component for Joining a Ride
-const HostRide: React.FC = (/*{ navigation }*/) => {
+const HostRide: React.FC<HostRideProps> = ({navigation}) => {
   // Destructuring styles for cleaner usage
   const {
     page,
@@ -63,7 +78,9 @@ const HostRide: React.FC = (/*{ navigation }*/) => {
   return (
     <SafeAreaView style={page}>
       <View style={profile}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>{
+          navigation.navigate('profilepage');
+        }}>
           <Text>
             <Ionicons name="person" size={38} color="#49108B" />{" "}
           </Text>
@@ -77,6 +94,13 @@ const HostRide: React.FC = (/*{ navigation }*/) => {
           option1={"Host"}
           option2={"Join"}
           selectionColor={"#E26EE5"}
+          navigation={navigation}
+          hostridefunc={() => {}}//since hostride is the current page
+          joinridefunc={() => {navigation.pop();
+            //since joinride will be beneath it in the stack
+            
+          }}
+
         />
       </View>
       <Card containerStyle={list}>

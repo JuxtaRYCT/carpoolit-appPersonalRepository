@@ -38,16 +38,16 @@ export default function App() {
   return (
     <NavigationContainer>
     <Stack.Navigator initialRouteName='joinride'>
-      <Stack.Screen name="joinride" component={JoinRide} />
-      <Stack.Screen name="hostRide" component={HostRide} />
-      <Stack.Screen name="interestedRider" component={InterestedRider} />
-      <Stack.Screen name="details" component={DetailInput} />
-      <Stack.Screen name="profileCreation" component={ProfileCreation} />
-      <Stack.Screen name="accept" component={Accept} />
-      <Stack.Screen name="remove" component={Remove} />
-      <Stack.Screen name="availableRides" component={AvailableRides} />
-      <Stack.Screen name="profilepage" component={Dashboard} />
-      <Stack.Screen name="filtermodal" component={FilterModal} />
+      <Stack.Screen name="joinride" component={JoinRide} options={{ headerShown:false }} />
+      <Stack.Screen name="hostRide" component={HostRide} options={{ headerShown:false }} />
+      <Stack.Screen name="interestedRider" component={InterestedRider} options={{ headerShown:false }} />
+      <Stack.Screen name="details" component={DetailInput} options={{ headerShown:false }} />
+      <Stack.Screen name="profileCreation" component={ProfileCreation} options={{ headerShown:false }} />
+      <Stack.Screen name="accept" component={Accept} options={{ headerShown:false }} />
+      <Stack.Screen name="remove" component={Remove} options={{ headerShown:false }} />
+      <Stack.Screen name="availableRides" component={AvailableRides} options={{ headerShown:false }} />
+      <Stack.Screen name="profilepage" component={Dashboard} options={{ headerShown:false }} />
+      <Stack.Screen name="filtermodal" component={FilterModal} options={{ headerShown:false }} />
     </Stack.Navigator>
     </NavigationContainer>
   );

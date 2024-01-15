@@ -21,27 +21,28 @@ type RootStackParamList = {
 interface DashboardProps{
     navigation: StackNavigationProp<RootStackParamList>;
 }
-const Dashboard=()=>{
-    interface CardData {
-        startingLocation: string;
-        destination: string;
-        date: Date;
-        time: Date;
-        cost: number;
-        hostProfilePic: string;
-        hostName: string;
-    };
 
-      interface PersonalData{
-
-        name: string;
-        email: string;
-        contactNumber: string;
-        gender:string;
-        yob:number;
-    };
-    
+  
     const Dashboard: React.FC<DashboardProps> = ({ navigation })=>{
+        interface CardData {
+            startingLocation: string;
+            destination: string;
+            date: Date;
+            time: Date;
+            cost: number;
+            hostProfilePic: string;
+            hostName: string;
+        };
+    
+          interface PersonalData{
+    
+            name: string;
+            email: string;
+            contactNumber: string;
+            gender:string;
+            yob:number;
+        };
+        
         const jsonData: PersonalData[] = personalInfo as unknown as PersonalData[];
         const jsonData2: CardData[] = personalInfo as unknown as CardData[];
         
@@ -94,7 +95,7 @@ const Dashboard=()=>{
     };
       
       
-}
+
 
 
 
