@@ -17,6 +17,8 @@ import React from 'react';
 import Remove from './screens/remove';
 import { createStackNavigator } from '@react-navigation/stack';
 import FilterModal from './components/filterModal';
+import RideCard from './components/rideCard';
+
 
 type RootStackParamList = {
   joinride: undefined;

@@ -30,7 +30,7 @@ const RideCard: React.FC<CardVariables> = ({ data }) => {
           <Text style={styles.tripTime}>{formattedTime}</Text>
         </View>
         
-        <Text style={styles.tripCost}>₹{data.cost.toFixed(2)}/person</Text>
+        <Text style={styles.tripCost}>₹{data.cost}/person</Text>
       </View>
       
       <View style={styles.hostInfo}>
@@ -45,12 +45,12 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: AppColors.primary,
     borderRadius: 20,
-    padding: 15,
+    padding: 20,
     margin: 10,
-    width: '90%',
-    height: 155,
+    width: '95%',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
+    
   },
 
   location:{

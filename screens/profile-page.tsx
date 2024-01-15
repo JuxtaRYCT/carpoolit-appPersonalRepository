@@ -43,39 +43,46 @@ const Dashboard=()=>{
     
     const Dashboard: React.FC<DashboardProps> = ({ navigation })=>{
         const jsonData: PersonalData[] = personalInfo as unknown as PersonalData[];
-        const data: any = []; // Replace 'any' with the appropriate type for your data
-        const jsonData2: CardData[] = data as unknown as CardData[];
-
+        const jsonData2: CardData[] = personalInfo as unknown as CardData[];
+        
         return(
             
             <>
+                <View style={styles.backbutton}>
                 <TouchableOpacity style={styles.backbutton} onPress={()=>{
                     navigation.pop();
                 }}>
                     <Image source={require('../assets/alc.png')} style={{ width: 42, height: 42 }} />
                 </TouchableOpacity>
 
-                <View style={styles.backbutton}>
-                    <ScrollView>
-                        <Text style={styles.dashboard}>
-                            Dashboard
-                        </Text>
-                        {jsonData.map((cardData, index) => (
-                            <PersonalDetailsCard key={index} personalInfo={cardData} />
-                        ))}
+                
+                    
 
-                        <Text style={styles.text}>
-                            Upcoming Trips
-                        </Text>
-                        {jsonData2.map((cardData, index) => (
-                            <RideCard key={index} data={cardData} />
-                        ))}
-                        <Text>
-                            Past Trips
-                        </Text>
-                        {jsonData2.map((cardData, index) => (
-                            <RideCard key={index} data={cardData} />
-                        ))}
+
+                    <Text style={styles.dashboard}>
+                            Dashboard
+                    </Text>
+
+                    <ScrollView showsVerticalScrollIndicator={false}>
+                        <View style={styles.parentContainer}>
+                            {jsonData.map((cardData, index) => (
+                                <PersonalDetailsCard key={index} personalInfo={cardData}/>
+                            ))}
+
+                            <Text style={styles.text}>
+                                Upcoming Trips
+                            </Text>
+                            {jsonData2.map((cardData, index) => (
+                                <RideCard key={index} data={cardData} />
+                            ))}
+                            <Text style={styles.text}>
+                                Past Trips
+                            </Text>
+                            {jsonData2.map((cardData, index) => (
+                                <RideCard key={index} data={cardData} />
+                            ))}
+                        </View>
+                        
                     </ScrollView>
                     
 
@@ -87,26 +94,38 @@ const Dashboard=()=>{
     };
       
       
-      
 }
+
+
 
 const styles = StyleSheet.create({
     mainView:{
         flex:1,
-        padding: 10
+        padding: 0
     },
+
+    scroller:{
+        alignContent: 'center',
+    },
+
+    parentContainer:{
+        alignContent: 'center'
+    },
+
     backbutton: {
         alignSelf: 'flex-start',
         padding: 25,
         paddingTop: 40,
         paddingLeft: 24,
+        
       },
 
       dashboard:{
         fontSize: 32,
         fontWeight: "bold",
         color: AppColors.text,
-        margin: 10
+        marginBottom: 10,
+        textAlign: 'center'
       },
 
       text:{
