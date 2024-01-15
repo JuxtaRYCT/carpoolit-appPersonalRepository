@@ -14,9 +14,12 @@ import Dashboard from './screens/profile-page';
 import AvailableRides from './screens/availableRides';
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
+import Remove from './screens/remove';
+import { createStackNavigator } from '@react-navigation/stack';
+import FilterModal from './components/filterModal';
 
 type RootStackParamList = {
-  JoinRide: undefined;
+  joinride: undefined;
   availableRides: undefined;
   interestedRider: undefined;
   hostRide: undefined;
@@ -24,8 +27,10 @@ type RootStackParamList = {
   profileCreation: undefined;
   accept: undefined;
   remove: undefined;
+  profilepage:undefined;
+  filtermodal:undefined
 };
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 export default function App() {
 
   return (
@@ -37,8 +42,10 @@ export default function App() {
       <Stack.Screen name="details" component={DetailInput} />
       <Stack.Screen name="profileCreation" component={ProfileCreation} />
       <Stack.Screen name="accept" component={Accept} />
-      {/* <Stack.Screen name="remove" component={Remove} /> */}
+      <Stack.Screen name="remove" component={Remove} />
       <Stack.Screen name="availableRides" component={AvailableRides} />
+      <Stack.Screen name="profilepage" component={Dashboard} />
+      <Stack.Screen name="filtermodal" component={FilterModal} />
     </Stack.Navigator>
     </NavigationContainer>
   );

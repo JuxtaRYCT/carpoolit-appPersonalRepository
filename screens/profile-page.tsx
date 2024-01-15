@@ -4,8 +4,23 @@ import RideCard from "../components/rideCard";
 import PersonalDetailsCard from "../components/personalDetailsCard";
 import personalInfo from '../data/riderData.json';
 import { View, ScrollView, StyleSheet, Image, Button, TouchableOpacity, SafeAreaView, Text } from 'react-native';
+import { StackNavigationProp } from "@react-navigation/stack";
 
 
+type RootStackParamList = {
+    JoinRide: undefined;
+    availableRides: undefined;
+    interestedRider: undefined;
+    hostRide: undefined;
+    details: undefined;
+    profileCreation: undefined;
+    accept: undefined;
+    remove: undefined;
+    filtermodal: undefined;
+  };
+interface DashboardProps{
+    navigation: StackNavigationProp<RootStackParamList>;
+}
 const Dashboard=()=>{
     interface CardData {
         startingLocation: string;
@@ -26,7 +41,7 @@ const Dashboard=()=>{
         yob:number;
     };
     
-    const Dashboard=()=>{
+    const Dashboard: React.FC<DashboardProps> = ({ navigation })=>{
         const jsonData: PersonalData[] = personalInfo as unknown as PersonalData[];
         const data: any = []; // Replace 'any' with the appropriate type for your data
         const jsonData2: CardData[] = data as unknown as CardData[];
@@ -34,7 +49,9 @@ const Dashboard=()=>{
         return(
             
             <>
-                <TouchableOpacity style={styles.backbutton}>
+                <TouchableOpacity style={styles.backbutton} onPress={()=>{
+                    navigation.pop();
+                }}>
                     <Image source={require('../assets/alc.png')} style={{ width: 42, height: 42 }} />
                 </TouchableOpacity>
 

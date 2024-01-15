@@ -14,7 +14,7 @@ var {height, width} = Dimensions.get('window');//to get window dimensions for dy
 // };
 
 type RootStackParamList = {
-  JoinRide: undefined;
+  joinride: undefined;
   availableRides: undefined;
   interestedRider: undefined;
   hostRide: undefined;
@@ -28,31 +28,32 @@ type FilterModalProps = {
   navigation: NativeStackNavigationProp<RootStackParamList,"filtermodal">;
 };
 const FilterModal : React.FC<FilterModalProps> = ({ navigation }) => {
-  const [modalVisible, setModalVisible] = useState(false);
-
+  // const [modalVisible, setModalVisible] = useState(false);
+  // setModalVisible(true);
   return (
     <View style={styles.centeredView}>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
+    {/* //   <Modal
+    //     animationType="slide"
+    //     transparent={true}
+    //     visible={modalVisible}
+    //     onRequestClose={() => {
           
-          setModalVisible(!modalVisible);
-        }}>
+    //       setModalVisible(!modalVisible);
+    //       navigation.pop();
+    //     }}> */}
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Text style={styles.modalText}>Would you like to change your ride request?</Text>
-            <TextFieldInput icon="clock" placeholder="Select time range " />
+            {/* <TextFieldInput icon="clock" placeholder="Select time range " /> */}
                 <View style = {{flexDirection: 'row', padding:20}}>
                 <View style = {{ paddingLeft:20,paddingRight:20}}>
                 <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={()=>{
-                setModalVisible(!modalVisible);
+                // setModalVisible(!modalVisible);
                 Alert.alert("You will be redirected to the Join Ride page");
                 //Enter the Navigation Code here
-                navigation.navigate('JoinRide');
+                navigation.navigate('joinride');
 
               }}>
               <Text style={styles.textStyle}>Yes</Text>
@@ -61,7 +62,8 @@ const FilterModal : React.FC<FilterModalProps> = ({ navigation }) => {
             <Pressable
               style={[styles.button, styles.buttonClose]}
               onPress={()=>{
-                setModalVisible(!modalVisible);
+                // setModalVisible(!modalVisible);
+                navigation.pop();
               }}>
               <Text style={styles.textStyle}>No</Text>
             </Pressable>
@@ -69,12 +71,6 @@ const FilterModal : React.FC<FilterModalProps> = ({ navigation }) => {
             </View>
           </View>
         </View>
-      </Modal>
-      <Pressable
-        style={[styles.button, styles.buttonOpen]}
-        onPress={() => setModalVisible(true)}>
-        <Text style={styles.textStyle}>Show Modal</Text>
-      </Pressable>
     </View>
   );
 };
