@@ -16,8 +16,8 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      {/* <ProfileCreation/> */}
-      <Dashboard/>
+      <ProfileCreation/>
+      {/* <Dashboard/> */}
       
     </View>
   );
@@ -30,4 +30,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  googleButton: {
+    backgroundColor: "white",
+    borderRadius: 4,
+    paddingHorizontal: 34,
+    paddingVertical: 16,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
+   },
+   googleButtonText: {
+    marginLeft: 16,
+    fontSize: 18,
+    fontWeight: '600'
+   },
+   googleIcon: {
+    height: 24,
+    width: 24
+   }
 });
