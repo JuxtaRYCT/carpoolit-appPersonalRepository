@@ -27,6 +27,7 @@ interface CardData {
   hostProfilePic: string;
   hostName: string;
 }
+
 type RootStackParamList = {
   joinride: undefined;
   availableRides: undefined;
@@ -44,7 +45,11 @@ type AvailableRideProps = {
 }
 
 const AvailableRides: React.FC<AvailableRideProps> = ({navigation}) => {
-  const jsonData: CardData[] = data as unknown as CardData[];
+  const jsonData: CardData[] = data.map((item) => ({
+    ...item,
+    date: new Date(item.date),
+    time: new Date(item.time),
+  }));
   const availableRides = () => {
     navigation.navigate('interestedRider');
   };

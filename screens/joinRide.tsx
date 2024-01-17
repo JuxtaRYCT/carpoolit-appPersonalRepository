@@ -95,7 +95,7 @@ const JoinRide: React.FC<JoinRideProps> = ({ navigation }) => {
       <Text style={heading}>Ride</Text>
       <View style={switchStyle}>
         <HostJoinSwitch
-          selectionMode={1}
+          selectionMode={2}
           roundCorner={true}
           option1={"Host"}
           option2={"Join"}
@@ -182,8 +182,9 @@ const styles = StyleSheet.create({
   list: {
     backgroundColor: "#FFFFFF",
     flexDirection: "column",
+    alignSelf:"center",
     width: 343,
-    height: 360,
+    height: "45%",
     borderRadius: 13,
     elevation: 20,
     marginTop: 60,
@@ -232,14 +233,16 @@ const styles = StyleSheet.create({
   },
   // Find Rides button style
   findButton: {
+    
     width: 202,
     height: 40,
     borderRadius: 50,
     backgroundColor: "#7E30E1",
+    alignSelf:"center",
     alignItems: "center",
     justifyContent: "center",
     marginTop: 100,
-    marginLeft: 62,
+    
   },
 outputtext: {
   flex: 0,

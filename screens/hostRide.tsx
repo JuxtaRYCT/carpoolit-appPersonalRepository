@@ -47,8 +47,8 @@ const HostRide: React.FC<HostRideProps> = ({navigation}) => {
     genderText,
     genderButtonOut,
     genderButtonIn,
-    findButton,
-    findButtonText,
+    hostButton,
+    hostButtonText,
   } = styles;
 
   // State variables to manage button colors
@@ -96,10 +96,9 @@ const HostRide: React.FC<HostRideProps> = ({navigation}) => {
           selectionColor={"#E26EE5"}
           navigation={navigation}
           hostridefunc={() => {}}//since hostride is the current page
-          joinridefunc={() => {navigation.pop();
+          joinridefunc={() => {navigation.pop();}}
             //since joinride will be beneath it in the stack
-            
-          }}
+          
 
         />
       </View>
@@ -133,8 +132,10 @@ const HostRide: React.FC<HostRideProps> = ({navigation}) => {
         </View>
       </Card>
       <View>
-        <TouchableOpacity style={findButton}>
-          <Text style={findButtonText}>Find Rides</Text>
+        <TouchableOpacity style={hostButton} onPress={()=>{
+          navigation.navigate('details');
+        }}>
+          <Text style={hostButtonText}>Host Ride</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -182,6 +183,7 @@ const styles = StyleSheet.create({
   list: {
     backgroundColor: "#FFFFFF",
     flexDirection: "column",
+    alignSelf:"center",
     width: 343,
     height: 'auto',
     borderRadius: 13,
@@ -196,6 +198,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     color: "#6B3EA0",
     fontFamily: "Roboto",
+    alignSelf:"center",
     marginTop: 10,
   },
   // Gender selection section style
@@ -244,7 +247,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   // Find Rides button style
-  findButton: {
+  hostButton: {
     flexDirection: "row",
     alignSelf: "center",
     width: '50%',
@@ -256,7 +259,7 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   // Find Rides button text style
-  findButtonText: {
+  hostButtonText: {
     fontSize: 14,
     fontWeight: "normal",
     color: "#FFFFFF",

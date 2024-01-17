@@ -34,7 +34,18 @@ const HostJoinSwitch: React.FC<HostJoinSwitchProps> = (props) => {
   const updatedSwitchData = (val: number) => {
     setSelectionMode(val);
   };
+function joinSwitchPress(): void {
+  updatedSwitchData(1);
+            hostridefunc();
+            updatedSwitchData(2); // to make sure that when it pops the switch stays on join
+            
+}
 
+function hostSwitchPress(): void {
+  updatedSwitchData(2);
+          joinridefunc();
+          //an extra is not needed here because it is beaing popped and going back to joinride  
+}
   return (
     <View>
       <View
@@ -52,10 +63,7 @@ const HostJoinSwitch: React.FC<HostJoinSwitchProps> = (props) => {
       >
         <TouchableOpacity
           activeOpacity={1}
-          onPress={() => {
-            updatedSwitchData(1);
-              hostridefunc();
-          }}
+          onPress={joinSwitchPress}
           style={{
             flex: 1,
             backgroundColor: getSelectionMode == 1 ? selectionColor : "white",
@@ -74,8 +82,7 @@ const HostJoinSwitch: React.FC<HostJoinSwitchProps> = (props) => {
         </TouchableOpacity>
         <TouchableOpacity
           activeOpacity={1}
-          onPress={() => {updatedSwitchData(2);
-          joinridefunc();}}
+          onPress={hostSwitchPress}
           style={{
             flex: 1,
             backgroundColor: getSelectionMode == 2 ? selectionColor : "white",

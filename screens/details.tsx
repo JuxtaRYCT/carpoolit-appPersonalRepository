@@ -151,6 +151,7 @@ const styles = StyleSheet.create({
     elevation: 20,
     marginTop: 60,
     alignItems: "center",
+    alignSelf:"center"
   },
   listHeader: {
     fontSize: 18,
