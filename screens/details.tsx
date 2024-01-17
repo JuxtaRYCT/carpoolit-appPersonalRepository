@@ -8,26 +8,30 @@ import {
   TextInput,
   Modal,
 } from "react-native";
-import { AntDesign, Ionicons } from '@expo/vector-icons';
-import { Dropdown } from 'react-native-element-dropdown';
+import { Ionicons } from '@expo/vector-icons';
+import Calendar1 from "../components/Calendar";
+import { StackNavigationProp } from "@react-navigation/stack";
 
-const data = [
-  { label: 'Item 1', value: '1' },
-  { label: 'Item 2', value: '2' },
-  { label: 'Item 3', value: '3' },
-  { label: 'Item 4', value: '4' },
-  { label: 'Item 5', value: '5' },
-  { label: 'Item 6', value: '6' },
-  { label: 'Item 7', value: '7' },
-  { label: 'Item 8', value: '8' },
-];
+type RootStackParamList = {
+  joinride: undefined;
+  availableRides: undefined;
+  interestedRider: undefined;
+  hostRide: undefined;
+  details: undefined;
+  profileCreation: undefined;
+  accept: undefined;
+  remove: undefined;
+  profilepage:undefined;
+  filtermodal:undefined
+};
 
-interface DetailInputProps {}
+interface DetailInputProps {
+  navigation:StackNavigationProp<RootStackParamList,"details">;
+}
 
-const DetailInput: React.FC<DetailInputProps> = () => {
+const DetailInput: React.FC<DetailInputProps> = ({navigation}) => {
   const {
     page,
-    dropdown,
     heading,
     list,
     listHeader,
@@ -42,8 +46,7 @@ const DetailInput: React.FC<DetailInputProps> = () => {
   const [gender, setGender] = useState<string | null>(null);
   const [phoneNumber, setPhoneNumber] = useState<string | null>(null);
   const [age, setAge] = useState<string | null>(null);
-  const [value, setValue] = useState(null);
-  const [isFocus, setIsFocus] = useState(false);
+
   const handleSubmit = () => {
     console.log("Gender:", gender);
     console.log("Phone Number:", phoneNumber);
@@ -63,7 +66,9 @@ const DetailInput: React.FC<DetailInputProps> = () => {
       <View style={{
         marginTop:10
       }}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>{
+          navigation.pop();
+        }}>
             <Ionicons name='arrow-back-circle-outline' size={38} color="#49108B" />
         </TouchableOpacity>
       </View>
@@ -96,34 +101,7 @@ const DetailInput: React.FC<DetailInputProps> = () => {
         </TouchableOpacity>):(
           <Modal visible={showCalendar} animationType="slide" transparent={true}>
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
-            <Dropdown
-            style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
-            // placeholderStyle={styles.placeholderStyle}
-            // selectedTextStyle={styles.selectedTextStyle}
-            // inputSearchStyle={styles.inputSearchStyle}
-            // iconStyle={styles.iconStyle}
-            data={data}
-            search
-            maxHeight={300}
-            labelField="label"
-            valueField="value"
-            placeholder={!isFocus ? 'Select item' : '...'}
-            searchPlaceholder="Search..."
-            value={value}
-            onFocus={() => setIsFocus(true)}
-            onBlur={() => setIsFocus(false)}
-            onChange={item => {
-              setValue(item.value);
-              setIsFocus(false);
-            }}
-            renderLeftIcon={() => (
-              <AntDesign
-                color={isFocus ? 'blue' : 'black'}
-                name="Safety"
-                size={20}
-              />
-            )}
-          />
+        <Calendar1 onDateSelect={handleDateSelect} />
         </View>
         </Modal>)
         }
@@ -155,10 +133,6 @@ const styles = StyleSheet.create({
     marginTop: 44,
     alignItems: "center",
   },
-  dropdown : {
-    width: 100,
-    height: 100
-  },
   heading: {
     fontSize: 38,
     fontWeight: "bold",
@@ -177,6 +151,7 @@ const styles = StyleSheet.create({
     elevation: 20,
     marginTop: 60,
     alignItems: "center",
+    alignSelf:"center"
   },
   listHeader: {
     fontSize: 18,

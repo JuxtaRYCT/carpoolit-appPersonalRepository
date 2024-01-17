@@ -4,41 +4,61 @@ import RideCard from "../components/rideCard";
 import PersonalDetailsCard from "../components/personalDetailsCard";
 import personalInfo from '../data/riderData.json';
 import { View, ScrollView, StyleSheet, Image, Button, TouchableOpacity, SafeAreaView, Text } from 'react-native';
+import { StackNavigationProp } from "@react-navigation/stack";
 
 
-const Dashboard=()=>{
-    interface CardData {
-        startingLocation: string;
-        destination: string;
-        date: Date;
-        time: Date;
-        cost: number;
-        hostProfilePic: string;
-        hostName: string;
-    };
+type RootStackParamList = {
+    JoinRide: undefined;
+    availableRides: undefined;
+    interestedRider: undefined;
+    hostRide: undefined;
+    details: undefined;
+    profileCreation: undefined;
+    accept: undefined;
+    remove: undefined;
+    filtermodal: undefined;
+  };
+interface DashboardProps{
+    navigation: StackNavigationProp<RootStackParamList>;
+}
 
-      interface PersonalData{
-
-        name: string;
-        email: string;
-        contactNumber: string;
-        gender:string;
-        yob:number;
-    };
+  
+    const Dashboard: React.FC<DashboardProps> = ({ navigation })=>{
+        interface CardData {
+            startingLocation: string;
+            destination: string;
+            date: Date;
+            time: Date;
+            cost: number;
+            hostProfilePic: string;
+            hostName: string;
+        };
     
+          interface PersonalData{
     
+            name: string;
+            email: string;
+            contactNumber: string;
+            gender:string;
+            yob:number;
+        };
+        
         const jsonData: PersonalData[] = personalInfo as unknown as PersonalData[];
         const jsonData2: CardData[] = personalInfo as unknown as CardData[];
-
+        
         return(
             
             <>
-                
-
                 <View style={styles.backbutton}>
-                    <TouchableOpacity style={styles.backbutton}>
-                        <Image source={require('../assets/alc.png')} style={{ width: 42, height: 42 }} />
-                    </TouchableOpacity>
+                <TouchableOpacity style={styles.backbutton} onPress={()=>{
+                    navigation.pop();
+                }}>
+                    <Image source={require('../assets/alc.png')} style={{ width: 42, height: 42 }} />
+                </TouchableOpacity>
+
+                
+                    
+
 
                     <Text style={styles.dashboard}>
                             Dashboard
@@ -75,7 +95,8 @@ const Dashboard=()=>{
     };
       
       
-      
+
+
 
 
 const styles = StyleSheet.create({

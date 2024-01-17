@@ -15,6 +15,8 @@ import profilePic from "../assets/profile.png";
 import filter from "../assets/filter.png";
 import search from "../assets/search.png";
 import back from "../assets/alc.png";
+import { StackNavigationProp } from "@react-navigation/stack";
+import FilterModal from "../components/filterModal";
 
 interface CardData {
   startingLocation: string;
@@ -26,9 +28,34 @@ interface CardData {
   hostName: string;
 }
 
-const AvailableRides: React.FC = () => {
-  const jsonData: CardData[] = data as unknown as CardData[];
+type RootStackParamList = {
+  joinride: undefined;
+  availableRides: undefined;
+  interestedRider: undefined;
+  hostRide: undefined;
+  details: undefined;
+  profileCreation: undefined;
+  accept: undefined;
+  remove: undefined;
+  filtermodal: undefined;
+  profilepage: undefined
+};
+type AvailableRideProps = {
+  navigation : StackNavigationProp<RootStackParamList, "availableRides">;
+}
 
+const AvailableRides: React.FC<AvailableRideProps> = ({navigation}) => {
+  const jsonData: CardData[] = data.map((item) => ({
+    ...item,
+    date: new Date(item.date),
+    time: new Date(item.time),
+  }));
+  const availableRides = () => {
+    navigation.navigate('interestedRider');
+  };
+  const popPage = () => {
+    navigation.pop();
+  }
   const {
     page,
     iconContainer,
@@ -48,13 +75,15 @@ const AvailableRides: React.FC = () => {
       {/* Back button and Profile button */}
       <View style={iconContainer}>
         <TouchableOpacity
-          onPress={() => console.log("Back button pressed")}
+          onPress={() =>{ popPage();
+            console.log("Back button pressed");}}
         >
           <Image style={{ width: 33, height: 33 }} source={back} />
         </TouchableOpacity>
         <TouchableOpacity 
           style={styles.profileButton}
-          onPress={() => console.log("Profile button pressed")}  
+          onPress={() => {console.log("Profile button pressed");
+          navigation.navigate('profilepage');}}  
         >
           <Image style={{ width: 28, height: 28 }} source={profilePic} />
         </TouchableOpacity>
@@ -73,7 +102,8 @@ const AvailableRides: React.FC = () => {
         <TextInput style={searchBar} placeholder="" />
         <TouchableOpacity 
           style={filterIcon}
-          onPress={() => console.log("Filter button pressed")}
+          onPress={() => {console.log("Filter button pressed");
+          navigation.navigate('filtermodal');}}
         >
           <Image style={{ width: 20, height: 20 }} source={filter} />
         </TouchableOpacity>
@@ -86,7 +116,8 @@ const AvailableRides: React.FC = () => {
         data={jsonData}
         renderItem={({ item }) => (
           <TouchableOpacity 
-              onPress={() => console.log("Ride Card button pressed")}
+              onPress={() => {console.log("Ride Card button pressed");
+            navigation.navigate('details');}}
               activeOpacity={0.35}
           >
             <RideCard data={item} />

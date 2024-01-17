@@ -13,9 +13,29 @@ import HostJoinSwitch from "../components/hostjoinSwitch";
 import AppColors from "../design-system/colors";
 import Calendar1 from "../components/Calendar";
 import TimePicker from "../components/time_display";
-
+import { NavigationContainer } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
+import App from "../App";
 // Main component for Joining a Ride
-const JoinRide: React.FC = (/*{ navigation }*/) => {
+import { StackNavigationProp } from "@react-navigation/stack";
+
+
+type JoinRideProps = {
+  navigation: StackNavigationProp<RootStackParamList, "joinride">;
+};
+type RootStackParamList = { 
+  joinride: undefined;
+  availableRides: undefined;
+  interestedRider: undefined;
+  hostRide: undefined;
+  details: undefined;
+  profileCreation: undefined;
+  accept: undefined;
+  remove: undefined;
+  profilepage:undefined;
+};
+
+const JoinRide: React.FC<JoinRideProps> = ({ navigation }) => {
   // Destructuring styles for cleaner usage
   const {
     page,
@@ -37,6 +57,10 @@ const JoinRide: React.FC = (/*{ navigation }*/) => {
   const [genderButtonInColorAny, setGenderButtonInColorAny] = useState("white");
   const [genderButtonInColorSame, setGenderButtonInColorSame] = useState("white");
 
+  const findRides = () => {
+    navigation.navigate('availableRides');
+  };
+
   // Event handler for Any Gender button press
   const handlePressAny = () => {
     setGenderButtonInColorAny("#6B3EA0");
@@ -57,9 +81,12 @@ const JoinRide: React.FC = (/*{ navigation }*/) => {
   };
 
   return (
-    <SafeAreaView style={page}>
+
+      <SafeAreaView style={page}>
       <View style={profile}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>{
+          navigation.navigate('profilepage');
+        }}>
           <Text>
             <Ionicons name="person" size={38} color="#49108B" />{" "}
           </Text>
@@ -68,11 +95,14 @@ const JoinRide: React.FC = (/*{ navigation }*/) => {
       <Text style={heading}>Ride</Text>
       <View style={switchStyle}>
         <HostJoinSwitch
-          selectionMode={1}
+          selectionMode={2}
           roundCorner={true}
           option1={"Host"}
           option2={"Join"}
           selectionColor={"#E26EE5"}
+          navigation={navigation}
+          hostridefunc={() => navigation.navigate("hostRide")}
+          joinridefunc={() => {}}
         />
       </View>
       <View style={list}>
@@ -103,7 +133,7 @@ const JoinRide: React.FC = (/*{ navigation }*/) => {
         </View>
       </View>
       <View>
-        <TouchableOpacity style={findButton}>
+        <TouchableOpacity style={findButton} onPress={findRides}>
           <Text style={findButtonText}>Find Rides</Text>
         </TouchableOpacity>
       </View>
@@ -152,8 +182,9 @@ const styles = StyleSheet.create({
   list: {
     backgroundColor: "#FFFFFF",
     flexDirection: "column",
+    alignSelf:"center",
     width: 343,
-    height: 360,
+    height: "45%",
     borderRadius: 13,
     elevation: 20,
     marginTop: 60,
@@ -202,14 +233,16 @@ const styles = StyleSheet.create({
   },
   // Find Rides button style
   findButton: {
+    
     width: 202,
     height: 40,
     borderRadius: 50,
     backgroundColor: "#7E30E1",
+    alignSelf:"center",
     alignItems: "center",
     justifyContent: "center",
     marginTop: 100,
-    marginLeft: 62,
+    
   },
 outputtext: {
   flex: 0,
