@@ -150,6 +150,7 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   // Profile icon style
+  //Needs to be fixed
   profile: {
     width: 44,
     height: 44,
@@ -169,7 +170,7 @@ const styles = StyleSheet.create({
     color: "#49108B",
     textAlign: "center",
     fontFamily: "Roboto",
-    marginTop: 88,
+    marginTop: 70,
     alignItems: "center",
   },
   // Switch style
@@ -183,7 +184,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     flexDirection: "column",
     alignSelf:"center",
-    width: 343,
+    width: '95%',
     height: "45%",
     borderRadius: 13,
     elevation: 20,

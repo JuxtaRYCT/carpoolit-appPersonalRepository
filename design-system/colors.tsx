@@ -8,6 +8,7 @@ const AppColors = {
     acceptButton: '#14AE5C',
     UIbutton: '#7E30E1',
     hostjointoggle: '#E26EE5',
+    shadow: '#000000'
     
   } as const;
   

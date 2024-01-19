@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, SafeAreaView, Text, TouchableOpacity } from 'react-native';
 import { Calendar } from 'react-native-calendars';
+import AppColors from '../design-system/colors';
 
 interface Calendar1Props {
   onDateSelect: (selectedDate: string) => void;
@@ -34,16 +35,16 @@ const Calendar1: React.FC<Calendar1Props> = ({ onDateSelect }) => {
             disableAllTouchEventsForDisabledDays={true}
             style={styles.calendar}
             theme={{
-              monthTextColor: '#6B3EA0',
+              monthTextColor: AppColors.accent,
               textMonthFontSize: 25,
               textMonthFontWeight: 'bold',
-              arrowColor: '#6B3EA0',
-              dayTextColor: '#6B3EA0',
-              textDisabledColor: '#FFFFFF',
+              arrowColor: AppColors.accent,
+              dayTextColor: AppColors.accent,
+              textDisabledColor: AppColors.background,
             }}
             onDayPress={handleDayPress}
             onCalendarClose={onCalendarClose}
-            markedDates={selectedDate ? { [selectedDate]: { selected: true, selectedColor: '#6B3EA0', textColor: 'white' } } : {}}
+            markedDates={selectedDate ? { [selectedDate]: { selected: true, selectedColor: AppColors.accent, textColor: AppColors.text } } : {}}
             monthFormat={'MMM yyyy'}
           />
 
@@ -66,9 +67,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   calendarContainer: {
-    backgroundColor: 'white',
+    backgroundColor: AppColors.background,
     borderRadius: 8,
-    shadowColor: '#000',
+    shadowColor: AppColors.shadow,
     shadowOffset: {
       width: 0,
       height: 12,
@@ -80,11 +81,11 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   calendar: {
-    backgroundColor: 'white',
+    backgroundColor: AppColors.background,
     borderRadius: 8,
   },
   submitButton: {
-    backgroundColor: '#6B3EA0',
+    backgroundColor: AppColors.accent,
     borderRadius: 8,
     paddingVertical: 12,
     paddingHorizontal: 24,
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   submitText: {
-    color: 'white',
+    color: AppColors.background,
     fontWeight: 'bold',
     fontSize: 16,
   },
