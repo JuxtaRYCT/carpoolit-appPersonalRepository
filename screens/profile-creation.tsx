@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Image ,Text, StyleSheet } from 'react-native';
+import AppColors from '../design-system/colors';
 
 
 
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
     flexDirection:'column'
     },
   cartext:{
-    color: "#49108B",
+    color: AppColors.text,
     fontFamily:"Roboto",
     fontSize: 24,
     fontWeight:'bold',
@@ -35,11 +36,11 @@ const styles = StyleSheet.create({
     marginTop:'18%',
     fontWeight:'600',
     fontSize:24,
-    color:'#49108B',
+    color: AppColors.text,
   },
   text2:{
     fontSize:15,
-    color:'#49108B',
+    color: AppColors.text,
     marginBottom:'5%'
   },
   stretch: {
