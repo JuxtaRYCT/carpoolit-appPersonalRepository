@@ -76,7 +76,7 @@ interface RiderData {
 
 
 const Remove = () => {
-  const riderData: RiderData = require('../assets/riderData.json');//modify to add path of anotherjson
+  const riderData: RiderData = require('../data/riderData.json');//modify to add path of anotherjson
   const {
     name,
     email,
