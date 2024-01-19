@@ -15,7 +15,6 @@ import Calendar1 from "../components/Calendar";
 import TimePicker from "../components/time_display";
 import { NavigationContainer } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
-import App from "../App";
 // Main component for Joining a Ride
 import { StackNavigationProp } from "@react-navigation/stack";
 
@@ -99,7 +98,7 @@ const JoinRide: React.FC<JoinRideProps> = ({ navigation }) => {
           roundCorner={true}
           option1={"Host"}
           option2={"Join"}
-          selectionColor={"#E26EE5"}
+          selectionColor={AppColors.hostjointoggle}
           navigation={navigation}
           hostridefunc={() => navigation.navigate("hostRide")}
           joinridefunc={() => {}}
@@ -114,7 +113,7 @@ const JoinRide: React.FC<JoinRideProps> = ({ navigation }) => {
           <Text style={[styles.outputtext,{padding:10}]}>{selectedDate ? selectedDate : 'Date'}</Text>
         </TouchableOpacity>):(
           <Modal visible={showCalendar} animationType="slide" transparent={true}>
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: AppColors.shadow }}>
         <Calendar1 onDateSelect={handleDateSelect} />
         </View>
         </Modal>)
@@ -156,7 +155,7 @@ const styles = StyleSheet.create({
     height: 44,
     position: "absolute",
     borderRadius: 22,
-    borderColor: "#49108B",
+    borderColor: AppColors.text,
     borderWidth: 4,
     overflow: "hidden",
     right: 0,
@@ -167,7 +166,7 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: 38,
     fontWeight: "bold",
-    color: "#49108B",
+    color: AppColors.text,
     textAlign: "center",
     fontFamily: "Roboto",
     marginTop: 70,
@@ -181,7 +180,7 @@ const styles = StyleSheet.create({
   },
   // List style
   list: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: AppColors.background,
     flexDirection: "column",
     alignSelf:"center",
     width: '95%',
@@ -195,7 +194,7 @@ const styles = StyleSheet.create({
   listHeader: {
     fontSize: 18,
     fontWeight: "700",
-    color: "#6B3EA0",
+    color: AppColors.accent,
     fontFamily: "Roboto",
     marginTop: 19,
   },
@@ -212,7 +211,7 @@ const styles = StyleSheet.create({
   genderText: {
     fontSize: 16,
     fontWeight: "500",
-    color: "#6B3EA0",
+    color: AppColors.accent,
     fontFamily: "Roboto",
   },
   // Outer button style
@@ -220,8 +219,8 @@ const styles = StyleSheet.create({
     width: 21,
     height: 21,
     borderRadius: 10.5,
-    backgroundColor: "white",
-    borderColor: "#6B3EA0",
+    backgroundColor: AppColors.background,
+    borderColor: AppColors.accent,
     borderWidth: 1,
     padding: 2,
   },
@@ -230,7 +229,7 @@ const styles = StyleSheet.create({
     width: 15,
     height: 15,
     borderRadius: 7.5,
-    backgroundColor: "white",
+    backgroundColor: AppColors.background,
   },
   // Find Rides button style
   findButton: {
@@ -238,7 +237,7 @@ const styles = StyleSheet.create({
     width: 202,
     height: 40,
     borderRadius: 50,
-    backgroundColor: "#7E30E1",
+    backgroundColor: AppColors.secondary,
     alignSelf:"center",
     alignItems: "center",
     justifyContent: "center",
@@ -249,18 +248,18 @@ outputtext: {
   flex: 0,
   width:'90%',
   alignItems:'stretch',
-  color: '#49108B',
+  color: AppColors.text,
   fontWeight: 'normal',
   fontFamily: 'Roboto',
   padding: 8,
-  backgroundColor: '#E5D9FF',
+  backgroundColor: AppColors.primary,
   borderRadius: 10,
 },
   // Find Rides button text style
   findButtonText: {
     fontSize: 14,
     fontWeight: "normal",
-    color: "#FFFFFF",
+    color: AppColors.background,
     textAlign: "center",
     fontFamily: "Roboto",
   },
