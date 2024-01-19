@@ -17,6 +17,7 @@ import search from "../assets/search.png";
 import back from "../assets/alc.png";
 import { StackNavigationProp } from "@react-navigation/stack";
 import FilterModal from "../components/filterModal";
+import AppColors from "../design-system/colors";
 
 interface CardData {
   startingLocation: string;
@@ -135,7 +136,7 @@ const AvailableRides: React.FC<AvailableRideProps> = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f0f0f0",
+    backgroundColor: AppColors.background,
     justifyContent: "center",
     alignItems: "center",
     marginTop: '10%',
@@ -168,7 +169,7 @@ const styles = StyleSheet.create({
   },
   backButton: {
     padding: 8,
-    borderColor: "#49108B", // Purple color
+    borderColor: AppColors.text, 
     borderRadius: 14, // Adjust the radius as needed
     borderWidth: 3,
     width: 28,
@@ -184,7 +185,7 @@ const styles = StyleSheet.create({
   header1: {
     fontSize: 38,
     fontWeight: "bold",
-    color: "#49108B",
+    color: AppColors.text,
     textAlign: "center",
     fontFamily: "Roboto",
   },
