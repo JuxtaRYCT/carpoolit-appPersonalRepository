@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, View, TextInput, Text } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
+import AppColors from "../design-system/colors";
 
 // Props interface for TextFieldInput component
 interface TextFieldInputProps {
@@ -33,10 +34,11 @@ const TextFieldInput: React.FC<TextFieldInputProps> = (props) => {
 };
 
 // Styles for the component
+//Needs to be fixed
 const styles = StyleSheet.create({
   // Styles
   sectionStyle: {
-    backgroundColor: "#E5D9FF",
+    backgroundColor: AppColors.primary,
     justifyContent: "flex-start",
     flexDirection: "row",
     width: 309,
@@ -52,7 +54,7 @@ const styles = StyleSheet.create({
   // TextInput style
   textStyle: {
     fontSize: 15,
-    color: "#6B3EA0",
+    color: AppColors.accent,
     fontFamily: "Roboto",
     fontWeight: "normal",
   },
