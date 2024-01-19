@@ -14,11 +14,26 @@ import Calendar1 from "../components/Calendar";
 import PassengerCounter from "../components/passengerCounter";
 import { Card } from "@rneui/themed";
 import TimePicker from "../components/time_display";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 
+type RootStackParamList = { 
+  joinride: undefined;
+  availableRides: undefined;
+  interestedRider: undefined;
+  hostRide: undefined;
+  details: undefined;
+  profileCreation: undefined;
+  accept: undefined;
+  remove: undefined;
+  profilepage:undefined;
+};
+interface HostRideProps { 
+  navigation: StackNavigationProp<RootStackParamList>;
+}
 
 // Main component for Joining a Ride
-const HostRide: React.FC = (/*{ navigation }*/) => {
+const HostRide: React.FC<HostRideProps> = ({navigation}) => {
   // Destructuring styles for cleaner usage
   const {
     page,
@@ -32,8 +47,8 @@ const HostRide: React.FC = (/*{ navigation }*/) => {
     genderText,
     genderButtonOut,
     genderButtonIn,
-    findButton,
-    findButtonText,
+    hostButton,
+    hostButtonText,
   } = styles;
 
   // State variables to manage button colors
@@ -63,7 +78,9 @@ const HostRide: React.FC = (/*{ navigation }*/) => {
   return (
     <SafeAreaView style={page}>
       <View style={profile}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>{
+          navigation.navigate('profilepage');
+        }}>
           <Text>
             <Ionicons name="person" size={38} color="#49108B" />{" "}
           </Text>
@@ -77,6 +94,12 @@ const HostRide: React.FC = (/*{ navigation }*/) => {
           option1={"Host"}
           option2={"Join"}
           selectionColor={"#E26EE5"}
+          navigation={navigation}
+          hostridefunc={() => {}}//since hostride is the current page
+          joinridefunc={() => {navigation.pop();}}
+            //since joinride will be beneath it in the stack
+          
+
         />
       </View>
       <Card containerStyle={list}>
@@ -109,8 +132,10 @@ const HostRide: React.FC = (/*{ navigation }*/) => {
         </View>
       </Card>
       <View>
-        <TouchableOpacity style={findButton}>
-          <Text style={findButtonText}>Find Rides</Text>
+        <TouchableOpacity style={hostButton} onPress={()=>{
+          navigation.navigate('details');
+        }}>
+          <Text style={hostButtonText}>Host Ride</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -158,6 +183,7 @@ const styles = StyleSheet.create({
   list: {
     backgroundColor: "#FFFFFF",
     flexDirection: "column",
+    alignSelf:"center",
     width: 343,
     height: 'auto',
     borderRadius: 13,
@@ -172,6 +198,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     color: "#6B3EA0",
     fontFamily: "Roboto",
+    alignSelf:"center",
     marginTop: 10,
   },
   // Gender selection section style
@@ -220,7 +247,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   // Find Rides button style
-  findButton: {
+  hostButton: {
     flexDirection: "row",
     alignSelf: "center",
     width: '50%',
@@ -232,7 +259,7 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   // Find Rides button text style
-  findButtonText: {
+  hostButtonText: {
     fontSize: 14,
     fontWeight: "normal",
     color: "#FFFFFF",
