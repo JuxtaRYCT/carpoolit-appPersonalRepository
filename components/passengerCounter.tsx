@@ -2,6 +2,8 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet,Text,View,Button } from "react-native";
 import { Pressable } from "react-native";
+import AppColors from "../design-system/colors";
+import App from "../App";
 
 export default class PassengerCounter extends React.Component {
   state = {
@@ -54,17 +56,17 @@ export default class PassengerCounter extends React.Component {
 
 const styles = StyleSheet.create({
 container: {
-  backgroundColor:'#fff',
+  backgroundColor:AppColors.background,
 },
 textStyle: {
     fontSize: 20,
-    color: "#6B3EA0",
+    color: AppColors.accent,
     fontFamily: "Roboto",
     fontWeight: "normal",
   },
 counterTextStyle: {
     fontSize: 25,
-    color: "#6B3EA0",
+    color: AppColors.accent,
     justifyContent: 'center' ,
     fontFamily: "Roboto",
     fontWeight: "normal",
