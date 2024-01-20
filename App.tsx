@@ -36,6 +36,7 @@ const Stack = createStackNavigator();
 export default function App() {
 
   return (
+    </View>
     <NavigationContainer>
     <Stack.Navigator initialRouteName='joinride'>
       <Stack.Screen name="joinride" component={JoinRide} options={{ headerShown:false }} />
@@ -50,5 +51,6 @@ export default function App() {
       <Stack.Screen name="filtermodal" component={FilterModal} options={{ headerShown:false }} />
     </Stack.Navigator>
     </NavigationContainer>
+
   );
 }
