@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "290309531485",
+    "project_id": "acm-carpoolit",
+    "storage_bucket": "acm-carpoolit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:290309531485:android:65438a4210b996d5fe6ab4",
+        "android_client_info": {
+          "package_name": "com.carpoolitapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "290309531485-63ifqhp1pevmj1gcac6bppth4pss7pjk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.carpoolitapp",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "290309531485-vnb7pgofegur0g8456f3k9lbutgo89fq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3VCeLwky9HstgyVKKOUqHTblLOnRym3g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "290309531485-vnb7pgofegur0g8456f3k9lbutgo89fq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
