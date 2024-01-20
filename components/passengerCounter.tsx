@@ -32,7 +32,13 @@ export default class PassengerCounter extends React.Component {
       
       <View style={{flexDirection: 'row', padding:20}}>
         <Text style = {textStyle}>Number of People</Text>
-        <Pressable style={buttonStyle} onPress={this.decrementValue}>
+        <Pressable style={buttonStyle} onPress={()=>{
+          if(this.state.value==0) {
+          //to make sure the value doesnt go below 0
+          } else {
+            this.decrementValue;
+          }
+        }}>
       <Text style={counterTextStyle}>   -  </Text>
     </Pressable>
       
