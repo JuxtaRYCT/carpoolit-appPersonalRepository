@@ -117,8 +117,8 @@ const Accept = () => {
                         <Text style={{ color: AppColors.declineButton, textAlign: 'center', fontWeight: 'bold' }}>Reject</Text>
                     </TouchableOpacity>
                     <BlankSpacer width={20} />
-                    <TouchableOpacity style={[styles.buttons, { backgroundColor: '#14AE5C' }]}>
-                        <Text style={{ color: 'white', textAlign: 'center', fontWeight: 'bold' }}>Accept</Text>
+                    <TouchableOpacity style={[styles.buttons, { backgroundColor: AppColors.acceptButton }]}>
+                        <Text style={{ color: AppColors.background, textAlign: 'center', fontWeight: 'bold' }}>Accept</Text>
                     </TouchableOpacity>
 
                 </View>
