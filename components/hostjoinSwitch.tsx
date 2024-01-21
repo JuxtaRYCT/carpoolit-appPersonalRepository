@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {Text, View, TouchableOpacity } from "react-native";
+import AppColors from "../design-system/colors";
 
 // Props interface for HostJoinSwitch component
 interface HostJoinSwitchProps {
@@ -52,7 +53,7 @@ function hostSwitchPress(): void {
         style={{
           height: 44,
           width: 215,
-          backgroundColor: "white",
+          backgroundColor: AppColors.background,
           borderRadius: getRoundCorner ? 25 : 0,
           borderWidth: 1,
           borderColor: selectionColor,
@@ -66,7 +67,7 @@ function hostSwitchPress(): void {
           onPress={joinSwitchPress}
           style={{
             flex: 1,
-            backgroundColor: getSelectionMode == 1 ? selectionColor : "white",
+            backgroundColor: getSelectionMode == 1 ? selectionColor : AppColors.background,
             borderRadius: getRoundCorner ? 25 : 0,
             justifyContent: "center",
             alignItems: "center",
@@ -74,7 +75,7 @@ function hostSwitchPress(): void {
         >
           <Text
             style={{
-              color: getSelectionMode == 1 ? "white" : selectionColor,
+              color: getSelectionMode == 1 ? AppColors.background : selectionColor,
             }}
           >
             {option1}
@@ -85,7 +86,7 @@ function hostSwitchPress(): void {
           onPress={hostSwitchPress}
           style={{
             flex: 1,
-            backgroundColor: getSelectionMode == 2 ? selectionColor : "white",
+            backgroundColor: getSelectionMode == 2 ? selectionColor : AppColors.background,
             borderRadius: getRoundCorner ? 25 : 0,
             justifyContent: "center",
             alignItems: "center",
@@ -93,7 +94,7 @@ function hostSwitchPress(): void {
         >
           <Text
             style={{
-              color: getSelectionMode == 2 ? "white" : selectionColor,
+              color: getSelectionMode == 2 ? AppColors.background : selectionColor,
             }}
           >
             {option2}

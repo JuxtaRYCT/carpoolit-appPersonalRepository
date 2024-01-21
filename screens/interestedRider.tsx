@@ -18,6 +18,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 // Import custom InterestedCard component
 import InterestedCard from "../components/InterestedCard";
+import AppColors from "../design-system/colors";
 
 // Define the InterestedRider functional component
 const InterestedRider: React.FC = () => {
@@ -107,7 +108,7 @@ const styles = StyleSheet.create({
     height: 28,
     position: "absolute",
     borderRadius: 14,
-    borderColor: "#49108B",
+    borderColor: AppColors.text,
     borderWidth: 3,
     overflow: "hidden",
     left: 1,
@@ -123,7 +124,7 @@ const styles = StyleSheet.create({
     // Styles for the header text of Interested Riders
     fontSize: 38,
     fontWeight: "bold",
-    color: "#49108B",
+    color: AppColors.text,
     textAlign: "center",
     fontFamily: "Roboto",
     marginBottom: 20, // Add margin bottom to separate from the ScrollView
@@ -132,7 +133,7 @@ const styles = StyleSheet.create({
     // Styles for the header text of Riders Joined
     fontSize: 38,
     fontWeight: "bold",
-    color: "#49108B",
+    color: AppColors.text,
     textAlign: "center",
     fontFamily: "Roboto",
     marginBottom: 20, // Add margin bottom to separate from the ScrollView

@@ -11,6 +11,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import Calendar1 from "../components/Calendar";
 import { StackNavigationProp } from "@react-navigation/stack";
+import AppColors from "../design-system/colors";
 
 type RootStackParamList = {
   joinride: undefined;
@@ -100,7 +101,7 @@ const DetailInput: React.FC<DetailInputProps> = ({navigation}) => {
           <Text style={[styles.input,{padding:10}]}>{selectedDate ? selectedDate : 'Date/Time'}</Text>
         </TouchableOpacity>):(
           <Modal visible={showCalendar} animationType="slide" transparent={true}>
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: AppColors.shadow }}>
         <Calendar1 onDateSelect={handleDateSelect} />
         </View>
         </Modal>)
@@ -136,14 +137,14 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: 38,
     fontWeight: "bold",
-    color: "#49108B",
+    color: AppColors.text,
     textAlign: "center",
     fontFamily: "Roboto",
     marginTop: 88,
     alignItems: "center",
   },
   list: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: AppColors.background,
     flexDirection: "column",
     width: 343,
     height: 360,
@@ -156,7 +157,7 @@ const styles = StyleSheet.create({
   listHeader: {
     fontSize: 18,
     fontWeight: "700",
-    color: "#6B3EA0",
+    color: AppColors.accent,
     fontFamily: "Roboto",
     marginTop: 19,
   },
@@ -169,18 +170,18 @@ const styles = StyleSheet.create({
   inputLabel: {
     fontSize: 15,
     fontWeight: "600",
-    color: "#49108B",
+    color: AppColors.text,
     fontFamily: "Roboto",
     marginBottom: 5,
     
   },
   input: {
-    color:'#6B3EA0',
+    color:AppColors.accent,
     width: "100%",
     height: 40,
     borderRadius: 10,
     padding: 10,
-    backgroundColor:'#E5D9FF'
+    backgroundColor:AppColors.primary
   },
   submitButtonContainer: {
     alignItems: "center",
@@ -190,14 +191,14 @@ const styles = StyleSheet.create({
     width: 150,
     height: 40,
     borderRadius: 40, 
-    backgroundColor: "#7E30E1",
+    backgroundColor: AppColors.secondary,
     alignItems: "center",
     justifyContent: "center",
   },
   submitButtonText: {
     fontSize: 14,
     fontWeight: "700",
-    color: "#FFFFFF",
+    color: AppColors.background,
     textAlign: "center",
     fontFamily: "Roboto",
   },

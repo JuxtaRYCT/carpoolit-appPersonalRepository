@@ -92,7 +92,7 @@ const styles=StyleSheet.create({
         flexDirection: "column",
         borderRadius: 12,
         width: '95%',
-        shadowColor: '#000',
+        shadowColor: AppColors.shadow,
         shadowOffset: { width: 0, height: 4 },
         shadowOpacity: 0.5,
         shadowRadius: 6, 

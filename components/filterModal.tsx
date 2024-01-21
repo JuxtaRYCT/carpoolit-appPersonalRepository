@@ -8,7 +8,6 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import JoinRide from '../screens/joinRide';
 var {height, width} = Dimensions.get('window');//to get window dimensions for dynamic attributes
 
-
 // const JoinRide = ({navigation, route}) => {
 //   return <Text>This is {route.params.name}'s profile</Text>;
 // };
@@ -85,11 +84,11 @@ const styles = StyleSheet.create({
       },
       modalView: {
         margin: 20,
-        backgroundColor: 'white',
+        backgroundColor: AppColors.background,
         borderRadius: 20,
         padding: 35,
         alignItems: 'center',
-        shadowColor: '#000',
+        shadowColor: AppColors.shadow,
         shadowOffset: {
           width: 0,
           height: 2,

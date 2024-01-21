@@ -3,6 +3,7 @@ import { View, ScrollView, StyleSheet, Image, Button, TouchableOpacity } from 'r
 import { Text, Icon } from '@rneui/themed';
 import { Card } from '@rneui/themed';
 import BlankSpacer from 'react-native-blank-spacer';
+import AppColors from '../design-system/colors';
 
 
 let styles = StyleSheet.create({
@@ -22,31 +23,31 @@ let styles = StyleSheet.create({
     outputtext: {
         // backgroundColor: '#E5D9FF',
         // rounded: true,
-        color: '#49108B',
+        color: AppColors.text,
         fontWeight: 'normal',
         fontFamily: 'Roboto',
         padding: 8,
-        backgroundColor: '#E5D9FF',
+        backgroundColor: AppColors.primary,
         borderRadius: 10,
     },
     heading: {
         fontSize: 24,
         fontWeight: 'bold',
         fontFamily: 'Roboto',
-        color: '#49108B',
+        color: AppColors.text,
         paddingLeft: 3
     },
     leadingtext: {
         fontWeight: '700',
         fontFamily: 'Roboto',
-        color: '#49108B',
+        color: AppColors.text,
         fontSize: 15,
         padding: 5,
         paddingTop: 10,
     },
     shadowProp: {
         shadowOffset: { width: -2, height: 4 },
-        shadowColor: '#171717',
+        shadowColor: AppColors.shadow,
         shadowOpacity: 0.2,
         shadowRadius: 3,
         elevation: 10,
@@ -74,7 +75,7 @@ interface RiderData {
 
 const Accept = () => {
 
-    const riderData: RiderData = require('../assets/riderData.json');//modify to add path of anotherjson
+    const riderData: RiderData = require('../data/riderData.json');//modify to add path of anotherjson
     const {
         name,
         email,
@@ -112,8 +113,8 @@ const Accept = () => {
                 </Card>
                 <BlankSpacer height={20} />
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between',padding :20 }}>
-                    <TouchableOpacity style={[styles.buttons, { backgroundColor: 'rgb(52,52,52,0.0)', borderWidth: 2,borderColor:'#FF0000' }]}>
-                        <Text style={{ color: '#FF0000', textAlign: 'center', fontWeight: 'bold' }}>Reject</Text>
+                    <TouchableOpacity style={[styles.buttons, { backgroundColor: AppColors.shadow, borderWidth: 2,borderColor:AppColors.declineButton }]}>
+                        <Text style={{ color: AppColors.declineButton, textAlign: 'center', fontWeight: 'bold' }}>Reject</Text>
                     </TouchableOpacity>
                     <BlankSpacer width={20} />
                     <TouchableOpacity style={[styles.buttons, { backgroundColor: '#14AE5C' }]}>

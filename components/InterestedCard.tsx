@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { Card } from '@rneui/themed';
+import AppColors from "../design-system/colors";
 
 interface InterestedCardProps {
     name: string;
@@ -10,7 +11,7 @@ interface InterestedCardProps {
 const styles = StyleSheet.create({
     card: {
         borderRadius: 20,
-        backgroundColor: '#E5D9FF',
+        backgroundColor: AppColors.primary,
         padding: 12,
         flexDirection: 'row',
         alignItems: 'center',
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
     name: {
         fontFamily: 'Roboto',
         fontSize: 20,
-        color: '#49108B',
+        color: AppColors.text,
         marginLeft: 10,
         padding: 8
     },

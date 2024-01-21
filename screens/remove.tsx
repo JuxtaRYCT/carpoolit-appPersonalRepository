@@ -3,7 +3,7 @@ import { View, ScrollView, StyleSheet, Image, Button, TouchableOpacity } from 'r
 import { Text, Icon } from '@rneui/themed';
 import { Card } from '@rneui/themed';
 import BlankSpacer from 'react-native-blank-spacer';
-
+import AppColors from '../design-system/colors';
 
 let styles = StyleSheet.create({
   backbutton: {
@@ -22,31 +22,31 @@ let styles = StyleSheet.create({
   outputtext: {
     // backgroundColor: '#E5D9FF',
     // rounded: true,
-    color: '#49108B',
+    color: AppColors.text,
     fontWeight: 'normal',
     fontFamily: 'Roboto',
     padding: 8,
-    backgroundColor: '#E5D9FF',
+    backgroundColor: AppColors.primary,
     borderRadius: 10,
   },
   heading: {
     fontSize: 24,
     fontWeight: 'bold',
     fontFamily: 'Roboto',
-    color: '#49108B',
+    color: AppColors.text,
     paddingLeft: 3
   },
   leadingtext: {
     fontWeight: '700',
     fontFamily: 'Roboto',
-    color: '#49108B',
+    color: AppColors.text,
     fontSize: 15,
     padding: 5,
     paddingTop: 10,
   },
   shadowProp: {
     shadowOffset: { width: -2, height: 4 },
-    shadowColor: '#171717',
+    shadowColor: AppColors.shadow,
     shadowOpacity: 0.2,
     shadowRadius: 3,
     elevation: 10,
@@ -76,7 +76,7 @@ interface RiderData {
 
 
 const Remove = () => {
-  const riderData: RiderData = require('../assets/riderData.json');//modify to add path of anotherjson
+  const riderData: RiderData = require('../data/riderData.json');//modify to add path of anotherjson
   const {
     name,
     email,
@@ -113,8 +113,8 @@ const Remove = () => {
           </View>
         </Card>
         <BlankSpacer height={30} />
-        <TouchableOpacity style={[styles.buttons, { backgroundColor: '#7E30E1'}]}>
-          <Text style={{ color: 'white', textAlign: 'center', fontWeight: 'bold',padding:3 }}>Remove</Text>
+        <TouchableOpacity style={[styles.buttons, { backgroundColor: AppColors.secondary}]}>
+          <Text style={{ color: AppColors.background, textAlign: 'center', fontWeight: 'bold',padding:3 }}>Remove</Text>
         </TouchableOpacity>
       </View></>
 

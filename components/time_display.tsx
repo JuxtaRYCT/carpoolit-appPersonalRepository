@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, View, Text, Platform, StyleSheet, TouchableOpacity } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import AppColors from '../design-system/colors';
 
 const TimePicker: React.FC = () => {
   const [time, setTime] = useState(new Date());
@@ -36,13 +37,13 @@ const TimePicker: React.FC = () => {
     </View>
   );
 };
-
+//Needs to be fixed
 const styles = StyleSheet.create({
   container: {
     marginTop:15
   },
   button: {
-    backgroundColor: "#E5D9FF",
+    backgroundColor: AppColors.primary,
     justifyContent: "flex-start",
     flexDirection: "row",
     width: 309,
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
     padding: 12,
   },
   buttonText: {
-    color: '#49108B',
+    color: AppColors.text,
     fontWeight: 'bold',
     fontSize: 16,
   },

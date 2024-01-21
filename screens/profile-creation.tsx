@@ -1,8 +1,10 @@
 import React from 'react';
+
 import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import auth from '@react-native-firebase/auth';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { Button } from '@rneui/themed';
+import AppColors from '../design-system/colors';
 
 
 GoogleSignin.configure({
@@ -56,6 +58,28 @@ const ProfileCreation = () => {
 };
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 50,    
+    flexDirection:'column'
+    },
+  cartext:{
+    color: AppColors.text,
+    fontFamily:"Roboto",
+    fontSize: 24,
+    fontWeight:'bold',
+    textAlign:'center',
+    marginTop:'10%',
+    marginBottom:'5%'
+  },
+  text1:{
+    marginTop:'18%',
+    fontWeight:'600',
+    fontSize:24,
+    color: AppColors.text,
+  },
+  text2:{
+    fontSize:15,
+    color: AppColors.text,
+    marginBottom:'5%'
     paddingTop: 50,
     flexDirection: 'column'
   },
